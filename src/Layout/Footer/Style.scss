@@ -1,0 +1,15 @@
+// @use "./global.scss" as *;
+
+footer{
+    background-color: #181818;
+    padding: 40px 10%;
+    color: #fff;
+    .footer-content{
+
+        border: 1px solid #fff;
+    }
+
+    @media screen and (max-width: 768px) {
+        padding: 20px 5%;
+    }
+}

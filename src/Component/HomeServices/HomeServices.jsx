@@ -40,19 +40,19 @@ function HomeServices() {
         </div>
 
         {/* CONTENT */}
-        <div className="content row g-4">
+        <div className="content container">
+            <div className="cards row g-4" >
           {details.map((item) => (
-            <div className="col-12 col-md-6" key={item.id}>
-              <div className="card col-8">
+              <div className="card col-md-6 col-lg-2" key={item.id}>
                 <div className="card-id">/{item.id}</div>
-
                 <div className="card-content">
                   <h5>{item.title}</h5>
-                  <p>{item.description}</p>
+              <p>{item.description}</p>
+              
                 </div>
               </div>
-            </div>
           ))}
+          </div>
         </div>
 
         {/* BUTTON */}

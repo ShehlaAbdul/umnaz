@@ -2,7 +2,7 @@ import React from "react";
 import Arrow from "../../assets/icons/arrowRight.svg";
 import "./Style.scss";
 
-function MainBtn() {
+function MainBtn({title}) {
   return (
     <div className="main-btn">
       <button type="button">
@@ -10,7 +10,7 @@ function MainBtn() {
           <img src={Arrow} alt="Arrow icon" />
         </div>
 
-        <span>Mesaj Göndərin</span>
+        <span>{title}</span>
       </button>
     </div>
   );

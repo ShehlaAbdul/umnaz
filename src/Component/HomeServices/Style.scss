@@ -4,7 +4,7 @@
   background-color: $main-bg-color;
   color: $main-text-color;
   border: 1px solid red;
-  padding: 80px 7%;
+  padding: 80px 6%;
   .head-side {
     display: flex;
     flex-direction: column;
@@ -20,8 +20,20 @@
     background-image: url("../../assets/images/services.webp");
     background-position: center;
     background-repeat: no-repeat;
-    background-size: cover;
+    background-size: contain;
     z-index: 100;
+    .cards{
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      border: 1px solid red;
+      .card{
+        width: 50%;
+      }
+      
+    }
+    // height: 100%;
+    // width: 100%;
 
   }
 }

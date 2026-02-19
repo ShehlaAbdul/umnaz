@@ -1,0 +1,84 @@
+@use "../../styles/global.scss" as *;
+
+#home-estetics {
+  padding: 40px 0;
+  padding-right: 7%;
+  background: $main-bg-color;
+  color: $main-text-color;
+  .left-side{
+    img{
+    max-height: 463px;
+    width: auto;
+    height: auto;
+  }
+  }
+  .home-estetics{
+    text-align: center;
+    gap: 20px;
+     .banner2{
+        object-fit: cover;
+        object-position: center;
+        // border: 1px solid red;
+    }
+    h2{
+        font-size: 36px;
+    }
+
+  }
+  @media (max-width: 992px) {
+    text-align: start;
+    padding: 0 5%;
+    padding-left: 0;
+    .home-estetics{
+         text-align: start;
+        h2{
+            font-size:26px;
+            // border: 1px solid red;
+        }
+        .banner1, .banner2{
+            // width: 100%;
+            height: 60px;
+            object-fit: cover;
+            // object-position: center;
+            // border: 1px solid red;
+            
+            img{
+                object-fit: contain;
+            }
+
+        }
+        .top, .bottom{
+            flex-direction: column;
+            align-items: start;
+        }
+    }
+  }
+  @media (max-width:768px){
+    .home-estetics{
+        padding-inline: 5%;
+    }
+  }
+  @media (max-width: 576px) {
+    .home-estetics{
+       
+        h2{
+            font-size: 28px;
+        }
+         .banner1, .banner2{
+            width: 100%;
+            
+            img{
+                object-fit: cover;
+                border-radius: 30px;
+                // width: 100%;
+            }
+
+        }
+    }
+  }
+  
+
+}
+
+
+

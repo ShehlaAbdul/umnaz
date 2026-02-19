@@ -1,0 +1,36 @@
+@use "../../styles/global.scss" as *;
+
+#home-hero{
+    background-image: url("../../assets/images/home-hero.webp");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding: 20px;
+    color: $main-text-color;
+    .home-hero{
+        padding: 60px 6%;
+        padding-top:30%;
+        h1{
+            width: 60%;
+        }
+        p{
+           width: 60%;
+        }
+        .bottom{
+            display: flex;
+        }
+        .hero-text{
+            border-left: 2px solid $main-text-color;
+            padding-left: 12px;
+        }
+    }
+    @media (max-width:768px){
+        h1{
+            font-size: 30px;
+            width: 100% !important;
+        }
+       p{
+        width: 100% !important;
+       }
+    }
+}

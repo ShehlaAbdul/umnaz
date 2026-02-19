@@ -3,7 +3,7 @@
 #home-services {
   background-color: $main-bg-color;
   color: $main-text-color;
-  border: 1px solid red;
+  // border: 1px solid red;
   padding: 80px 6%;
   .head-side {
     display: flex;
@@ -26,9 +26,13 @@
       display: flex;
       justify-content: space-between;
       align-items: end;
-      border: 1px solid red;
+      // border: 1px solid red;
       .card{
-        width: 50%;
+        width: 30%;
+        height: 200px;
+        background-color: #393737;
+        border: 1px solid #000;
+        color: $main-text-color;
       }
       
     }

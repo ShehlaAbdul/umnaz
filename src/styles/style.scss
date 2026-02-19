@@ -7,6 +7,10 @@
     text-decoration: none;
     outline: none;
 }
+body{
+    font-family: Poppins;
+
+}
 a{
     text-decoration: none;
     color: inherit !important;
@@ -22,6 +26,10 @@ h1,h2,h3,h4,h5,h6{
     // color:$main-text-color;
       font-family: "Space Grotesk", sans-serif;
 
+}
+.head-title{
+    padding-left: 12px;
+    border-left: 2px solid $main-color;
 }
 img{
     width: 100%;

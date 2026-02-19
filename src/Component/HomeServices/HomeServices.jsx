@@ -8,7 +8,7 @@ function HomeServices() {
       id: 1,
       title: "Ümumi xidmət bloku",
       description:
-        "Hər şey bir ünvanda. Eskiz layihələndirmə, Geoloji həllər və konstruksiya hesablamaları, İnteryer və eksteryer dizayn xidmətləri.",
+        "Hər şey bir ünvanda. Eskiz layihələndirmə,Geoloji həllər və konstruksiya hesablamaları,İnteryer və eksteryer dizayn xidmətləri.",
     },
     {
       id: 2,

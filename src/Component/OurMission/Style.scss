@@ -1,0 +1,78 @@
+@use "../../styles/global.scss" as *;
+#values-section{
+    background-color: $main-bg-color;
+    padding: 96px 6%;
+    .values-section{
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding:42px 50px;
+    color: $main-text-color;
+    border-radius: 20px;
+    h1{
+        font-size: 50px;
+        font-weight: 600;
+        margin-bottom: 40px;
+    }
+    button{
+        background-color: transparent;
+        padding: 6px 18px;
+        border: 1px solid #A2A2A2;
+        border-radius: 24px;
+        margin-right: 10px;
+        margin-top: 10px;
+        color: $main-text-color;
+        // width: 100%;
+    }
+    .left{
+        flex: 4 ;
+    }
+    
+    .right{
+        border-left: 2px solid #A2A2A2;
+      flex: 3;
+        .content{
+            padding-left: 40px;
+        }
+        p{
+            //   max-width: 418px;
+              font-size: 18px;
+        }
+        
+    }
+
+    }
+    @media (max-width:992px){
+        .values-section{
+            button{
+                // width: 100%;
+            }
+            h1{
+                font-size: 36px  ;
+            }
+        }
+    }
+    @media (max-width:768px){
+        .values-section{
+            flex-direction: column;
+            gap: 30px;
+            padding: 20px 5%;
+            h1{
+                font-size: 24px;
+                margin-bottom: 20px;
+            }
+            .right{
+                border-left: none;
+                border-top: 2px solid #A2A2A2 ;
+                padding-top: 20px;
+                flex: 1;
+               .content{
+                 padding-left: 0 !important;
+               }
+            }
+            .left{
+                flex: 1;
+            }
+        }
+    }
+}

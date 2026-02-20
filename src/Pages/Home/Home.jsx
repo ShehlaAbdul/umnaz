@@ -6,11 +6,13 @@ import HomeServices from '../../Component/HomeServices/HomeServices';
 import HomeProject from '../../Component/HomeProjects/HomeProjects';
 import HomeAbout from '../../Component/HomeAbout/HomeAbout';
 import HomeHero from '../../Component/HomeHero/HomeHero';
+import HomePartners from '../../Component/HomePartners/HomePartners';
 
 function Home() {
   return (
     <>
-      <HomeHero/>
+      <HomeHero />
+      <HomePartners/>
       <HomeAbout/>
       <HomeProject/>
       <HomeServices/>

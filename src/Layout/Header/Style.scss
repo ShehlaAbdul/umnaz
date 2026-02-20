@@ -1,3 +1,39 @@
-footer{
-    padding: 40px 10%;
+@use "../../styles/global.scss" as *;
+.navbar {
+  .container {
+    padding-inline: 6% !important;
+    position: absolute;
+    top: 0;
+    padding-top: 10px;
+    .logo {
+      width: 70px;
+    }
+    a {
+      color: $main-text-color !important;
+      transition: all 300ms;
+      &:hover {
+        color: $main-color !important ;
+      }
+      &:active {
+        color: $main-color !important;
+      }
+    }
+    .navbar-collapse {
+      background: rgba(54, 53, 53, 0.546);
+      backdrop-filter: blur(15px);
+      -webkit-backdrop-filter: blur(15px);
+      padding: 15px;
+    }
+  }
+  @media (max-width: 768px) {
+    .container {
+      padding: 0 !important;
+    }
+    .logo{
+        margin-left: 5%;
+    }
+    .navbar-toggler{
+        margin-right: 5% !important;
+    }
+  }
 }

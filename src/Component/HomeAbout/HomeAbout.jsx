@@ -2,7 +2,7 @@ import React from 'react';
 import "./Style.scss";
 import MainBtn from '../MainBtn/MainBtn';
 import { Link } from 'react-router-dom';
-import HomeAboutImg from "../../assets/images/HeroSection-phone.webp";
+import HomeAboutImg from "../../assets/images/home-about-img.webp"
 
 
 function HomeAbout() {

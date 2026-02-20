@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import "./Style.scss";
 import Logo from "../../assets/images/logo_white.webp"
 import { Link } from "react-router-dom";
@@ -6,22 +6,13 @@ import "./Style.scss";
 import { FaBars } from "react-icons/fa6";
 
 function Header() {
+   const [lang, setLang] = useState("AZ");
   return (
     <nav className="navbar navbar-expand-lg p-0 px-0 ">
-      <div className="container ">
+      <div className="container-fluid  ">
         <Link className="logo fw-bold" href="#">
           <img src={Logo} alt="" />
         </Link>
-
-        {/* Mobile Toggle Button */}
-        {/* <button
-          className="navbar-toggler"
-          type="button"
-          data-bs-toggle="collapse"
-          data-bs-target="#navbarContent"
-        >
-          <span className="navbar-toggler-icon"></span>
-        </button> */}
         <div
           className="navbar-toggler"
           type="button"
@@ -37,7 +28,7 @@ function Header() {
           id="navbarContent"
         >
           {/* Center Links */}
-          <ul className="navbar-nav mx-auto mb-2 mb-lg-0">
+          <ul className="navbar-nav mx-auto mb-2 mb-lg-0 ">
             <li className="nav-item">
               <Link className="nav-link" to="/">
                 Ana səhifə
@@ -83,8 +74,15 @@ function Header() {
 
           {/* Language Switch */}
           <div className="d-flex gap-2">
-            <button className="btn btn-outline-dark btn-sm">AZ</button>
-            <button className="btn btn-outline-dark btn-sm">EN</button>
+            {["AZ", "EN"].map((item) => (
+              <button
+                key={item}
+                className={`lan btn-sm ${lang === item ? "active" : ""}`}
+                onClick={() => setLang(item)}
+              >
+                {item}
+              </button>
+            ))}
           </div>
         </div>
       </div>

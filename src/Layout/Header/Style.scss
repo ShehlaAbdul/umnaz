@@ -1,12 +1,18 @@
 @use "../../styles/global.scss" as *;
 .navbar {
-  .container {
-    padding-inline: 6% !important;
+  .container-fluid {
+    padding: 0;
     position: absolute;
     top: 0;
     padding-top: 10px;
+    padding-right: 6%;
     .logo {
       width: 70px;
+      margin-left: 6%;
+    }
+     .navbar-toggler{
+      margin-right: 6% ;
+      border: none !important;
     }
     a {
       color: $main-text-color !important;
@@ -18,22 +24,38 @@
         color: $main-color !important;
       }
     }
+    .lan {
+  background: transparent;
+  padding: 8px 13px;
+  border-radius: 6px;
+  border: 2px solid $main-color;
+  color: $main-text-color;
+  transition: 0.3s;
+
+  &.active {
+    background: $main-color;
+
+    color: $main-bg-color;
+  }
+}
+  }
+  @media (max-width: 992px) {
     .navbar-collapse {
-      background: rgba(54, 53, 53, 0.546);
+      background: rgba(54, 53, 53, 0.086);
       backdrop-filter: blur(15px);
       -webkit-backdrop-filter: blur(15px);
       padding: 15px;
     }
-  }
-  @media (max-width: 768px) {
-    .container {
-      padding: 0 !important;
+  
+    .container-fluid {
+      padding-right: 0 !important;
     }
     .logo{
-        margin-left: 5%;
+        margin-left: 5% !important;
     }
     .navbar-toggler{
-        margin-right: 5% !important;
+      margin-right: 5% !important;
     }
+    
   }
 }

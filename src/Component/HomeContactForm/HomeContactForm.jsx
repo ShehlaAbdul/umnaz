@@ -8,7 +8,7 @@ function HomeContactForm() {
       <div className="container">
         {/* Title */}
         <div className="contact-header">
-            <p>Əlaqə</p>
+          <p>Əlaqə</p>
           <h2>Bizimlə əlaqə saxlayın</h2>
         </div>
 
@@ -41,7 +41,7 @@ function HomeContactForm() {
 
             {/* Button */}
             <div className="col-12">
-              <MainBtn />
+              <MainBtn title={"Mesaj göndərin"} />
             </div>
           </div>
         </form>

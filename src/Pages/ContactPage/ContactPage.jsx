@@ -10,6 +10,7 @@ import Instagram from "../../assets/icons/instagram.svg";
 import Facebook from "../../assets/icons/facebook.svg";
 import LinkedIn from "../../assets/icons/linkedin.svg";
 import Whatsapp from "../../assets/icons/whatsap.svg";
+import HomeContactForm from "../../Component/HomeContactForm/HomeContactForm";
 
 
 function ContactPage() {
@@ -99,7 +100,8 @@ function ContactPage() {
             </div>
           </div>
         </div>
-      </section>
+          </section>
+          <HomeContactForm/>
     </>
   );
 }

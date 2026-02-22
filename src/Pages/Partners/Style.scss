@@ -1,35 +1,130 @@
 @use "../../styles/global.scss" as *;
 
-#partners-page{
-    background-color: $main-bg-color;
-    color: $main-text-color;
+#partners-page {
+  background-color: $main-bg-color;
+  color: $main-text-color;
+  width: 100%;
+  padding: 60px 6% 200px 6%;
+
+  font-size: 32px;
+  font-weight: 500;
+
+  .partners-page {
+    position: relative;
     width: 100%;
-    padding: 60px 6% 200px 6%;
-    .partners-page-top{
-        border: 2px solid #2E2E2E;
-        font-size: 32px;
-        line-height: 140%;
-        font-weight: 500;
-        text-align: center;
-        position: relative;
+    height: 100%;
+    margin-bottom: 60px;
+
+    .top {
+      width: 100%;
+      text-align: center;
+      padding: 52px 24px;
+      border-radius: 12px;
+      background-color: #141414;
+      position: relative;
+      z-index: 2;
+
+      /* ❌ köhnə border silindi */
+      border: none;
+
+      /* 🔥 Animated border */
+      &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        padding: 2px;
         border-radius: 12px;
-        z-index: 2;
-        background-color: #141414;
-        .overlay{
-            border: 2px solid  #2E2E2E ;
-            // position: relative;
-            // bottom: -20px;
-            //    border: 2px solid #2E2E2E;
-            // width: 95%;
-            // border-radius: 12px;
-            // z-index: -1;
-            // border-top: none;
-            
-        }
+
+        background: linear-gradient(
+          90deg,
+          transparent,
+          #E2B361,
+          transparent
+        );
+
+        background-size: 200% 100%;
+        animation: borderMove 4s linear infinite;
+
+        -webkit-mask:
+          linear-gradient(#000 0 0) content-box,
+          linear-gradient(#000 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+
+        pointer-events: none;
+      }
     }
 
+    .overlay {
+      position: absolute;
+      bottom: -16px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 92%;
+      height: 100%;
+      border-radius: 12px;
+      background-color: #141414;
+      z-index: 1;
 
-    @media (max-width:768px){
-        padding: 60px 5% 100px ;
+      /* ❌ köhnə border silindi */
+      border: none;
+
+      /* 🔥 Animated border */
+      &::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        padding: 2px;
+        border-radius: 12px;
+
+        background: linear-gradient(
+          90deg,
+          transparent,
+          #E2B361,
+          transparent
+        );
+
+        background-size: 200% 100%;
+        animation: borderMove 4s linear infinite;
+
+        -webkit-mask:
+          linear-gradient(#000 0 0) content-box,
+          linear-gradient(#000 0 0);
+        -webkit-mask-composite: xor;
+        mask-composite: exclude;
+
+        pointer-events: none;
+      }
     }
+  }
+
+  @keyframes borderMove {
+    0% {
+      background-position: 200% 0;
+    }
+    100% {
+      background-position: -200% 0;
+    }
+  }
+
+  @media (max-width: 768px) {
+    padding: 60px 5% 100px;
+
+    p {
+      font-size: 20px !important;
+    }
+
+    .partners-page {
+      margin-bottom: 40px;
+    }
+
+    .top {
+      padding: 24px;
+    }
+
+    .overlay {
+      width: 85% !important;
+      bottom: -5px !important;
+    }
+  }
 }

@@ -1,0 +1,94 @@
+@use "../../styles/global.scss"as *;
+
+#contact-sec{
+    background-color:  $main-bg-color;
+    color: $main-text-color;
+    padding: 70px 6% 200px 6%;
+    .contact-sec{
+        border: qpx solid red;
+        .contact-header {
+            width: 100%;
+            text-align: center;
+            h2{
+                font-size: 32px;
+                font-weight: 500;
+                line-height: 140%;
+            }
+            p{
+                max-width: 550px;
+            }
+        }
+         .contact-content {
+            padding-top: 60px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 60px;
+    align-items: stretch;
+  }
+
+.contact-info {
+   display: flex;
+   flex-direction: column;
+   gap: 20px;
+
+  .info-row {
+    display: flex;
+    align-items: center;
+    gap: 16px;
+  }
+   .contact-icons {
+        display: flex;
+        gap: 10px;
+        padding: 10px 0;
+        .icon {
+          width: 40px;
+          height: 40px;
+          border-radius: 50%;
+          background: $main-color;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          cursor: pointer;
+
+          img {
+            width: 24px;
+            height: 24px;
+          }
+        }
+      }
+
+  img {
+    width: 28px;
+    height: 28px;
+    flex-shrink: 0;
+    margin-top: 4px; // başlıqla vizual balans üçün
+  }
+
+  h4 {
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 6px;
+  }
+
+  span {
+    font-size: 16px;
+    line-height: 140%;
+    opacity: 0.8;
+  }
+}
+
+  .contact-map {
+    border-radius: 12px;
+    overflow: hidden;
+    min-height: 350px;
+  }
+
+  /* Responsive */
+  @media (max-width: 992px) {
+    .contact-content {
+      grid-template-columns: 1fr;
+      gap: 40px;
+    }
+  }
+    }
+}

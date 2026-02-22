@@ -24,10 +24,8 @@
       position: relative;
       z-index: 2;
 
-      /* ❌ köhnə border silindi */
       border: none;
 
-      /* 🔥 Animated border */
       &::before {
         content: "";
         position: absolute;
@@ -66,10 +64,9 @@
       background-color: #141414;
       z-index: 1;
 
-      /* ❌ köhnə border silindi */
       border: none;
 
-      /* 🔥 Animated border */
+      /*  Animated border */
       &::before {
         content: "";
         position: absolute;

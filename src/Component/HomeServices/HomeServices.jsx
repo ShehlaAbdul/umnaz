@@ -56,7 +56,7 @@ function HomeServices() {
         </div>
 
         {/* BUTTON */}
-        <MainBtn />
+        <MainBtn title={"Daha Ətraflı "} />
       </div>
     </section>
   );

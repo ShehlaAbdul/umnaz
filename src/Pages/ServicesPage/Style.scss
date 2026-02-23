@@ -1,0 +1,154 @@
+@use "../../styles/global.scss" as *;
+
+@property --angle {
+  syntax: "<angle>";
+  initial-value: 0deg;
+  inherits: false;
+}
+
+
+
+#services-page {
+  background: $main-bg-color;
+  padding: 80px 6%;
+
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+
+  // Outer wrapper — this IS the animated border
+  .service-card {
+    border-radius: 12px;
+    padding:1.5px;
+    animation: spin-gradient 3s linear infinite;
+    position: relative;
+    flex: 1 0 0;
+    transition: all 100ms;
+    border: 2px solid #2e2e2e;
+    &:hover{
+        @keyframes spin-gradient {
+  from { --angle: 0deg; }
+  to   { --angle: 360deg; }
+}
+        background: conic-gradient(
+      from var(--angle) at 0% 0%,
+      #2e2e2e 0deg,
+      #2e2e2e 60deg,
+      #2e2e2e 120deg,
+      $main-color 180deg,
+      #2e2e2e 240deg,
+      #2e2e2e 300deg,
+      #2e2e2e 360deg
+    );
+    }
+    // Soft outer glow
+    &::before {
+      content: "";
+      position: absolute;
+      inset: -1px;
+      border-radius: 12px;
+      background: inherit;
+      filter: blur(8px);
+      opacity: 0.35;
+      z-index: -1;
+    }
+
+    // Inner dark card
+    &__inner {
+      background: $main-card-bg;
+      border-radius: 10.5px;
+      display: flex;
+      padding: 20px 16px;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 8px;
+      position: relative;
+      overflow: hidden;
+      height: 100%;
+
+      // Bottom-right ambient glow
+      &::after {
+        content: "";
+        position: absolute;
+        right: -40px;
+        bottom: -50px;
+        width: 50%;
+        height: 100%;
+        filter: blur(30px);
+        background: radial-gradient(
+          circle,
+          #e9c77f28 0%,
+          #e9c77f13 20%,
+          transparent 100%
+        );
+        border-radius: 50%;
+        pointer-events: none;
+      }
+    }
+
+    .card-id {
+      font-family: "Space Grotesk";
+      font-size: 24px;
+      font-weight: 500;
+      line-height: 140%;
+      color: $main-text-color;
+    }
+
+    .card-title {
+      font-size: 20px;
+      font-weight: 500;
+      line-height: 140%;
+      color: $main-text-color;
+    }
+
+    .card-text {
+      font-family: "Poppins";
+      font-size: 16px;
+      font-weight: 400;
+      line-height: 140%;
+      color: #bdbdbd;
+    }
+  }
+
+  @media (max-width: 1200px) {
+    .services-grid {
+      grid-template-columns: repeat(1, 1fr);
+    }
+  }
+
+  @media (max-width: 992px) {
+    padding: 60px 0;
+
+    .services-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
+
+      .service-card {
+        &__inner {
+          padding: 18px 14px;
+        }
+
+        .card-id {
+          font-size: 20px;
+        }
+
+        .card-title {
+          font-size: 18px;
+        }
+
+        .card-text {
+          font-size: 14px;
+        }
+      }
+    }
+  }
+
+  @media (max-width: 576px) {
+    .services-grid {
+      grid-template-columns: repeat(1, 1fr);
+      gap: 24px;
+    }
+  }
+}

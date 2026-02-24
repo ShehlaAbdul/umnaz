@@ -6,8 +6,6 @@
   inherits: false;
 }
 
-
-
 #services-page {
   background: $main-bg-color;
   padding: 80px 6%;
@@ -21,27 +19,31 @@
   // Outer wrapper — this IS the animated border
   .service-card {
     border-radius: 12px;
-    padding:1.5px;
+    padding: 1.5px;
     animation: spin-gradient 3s linear infinite;
     position: relative;
     flex: 1 0 0;
     transition: all 100ms;
     border: 2px solid #2e2e2e;
-    &:hover{
-        @keyframes spin-gradient {
-  from { --angle: 0deg; }
-  to   { --angle: 360deg; }
-}
-        background: conic-gradient(
-      from var(--angle) at 0% 0%,
-      #2e2e2e 0deg,
-      #2e2e2e 60deg,
-      #2e2e2e 120deg,
-      $main-color 180deg,
-      #2e2e2e 240deg,
-      #2e2e2e 300deg,
-      #2e2e2e 360deg
-    );
+    &:hover {
+      @keyframes spin-gradient {
+        from {
+          --angle: 0deg;
+        }
+        to {
+          --angle: 360deg;
+        }
+      }
+      background: conic-gradient(
+        from var(--angle) at 0% 0%,
+        #2e2e2e 0deg,
+        #2e2e2e 60deg,
+        #2e2e2e 120deg,
+        $main-color 180deg,
+        #2e2e2e 240deg,
+        #2e2e2e 300deg,
+        #2e2e2e 360deg
+      );
     }
     // Soft outer glow
     &::before {

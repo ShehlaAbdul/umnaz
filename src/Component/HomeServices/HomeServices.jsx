@@ -40,18 +40,17 @@ function HomeServices() {
         </div>
 
         {/* CONTENT */}
-        <div className="content container">
-            <div className="cards row g-4" >
-          {details.map((item) => (
-              <div className="card col-md-6 col-lg-2" key={item.id}>
-                <div className="card-id">/{item.id}</div>
-                <div className="card-content">
-                  <h5>{item.title}</h5>
-              <p>{item.description}</p>
-              
+        <div className="content container-fluid">
+          <div className="services-cards">
+            {details.map((item) => (
+              <div className="service-card" key={item.id}>
+                <div className="service-card__inner">
+                  <span className="card-id">/{item.id}</span>
+                  <h3 className="card-title">{item.title}</h3>
+                  <p className="card-text">{item.description}</p>
                 </div>
               </div>
-          ))}
+            ))}
           </div>
         </div>
 

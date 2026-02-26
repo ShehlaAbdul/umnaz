@@ -1,0 +1,27 @@
+.thumbnail img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+}
+
+.images {
+  display: flex;
+  gap: 20px;
+  margin: 40px 0;
+
+  img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+  }
+}
+
+.projects-content {
+  margin: 40px 0;
+}
+
+.other-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 20px;
+}

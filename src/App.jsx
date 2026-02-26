@@ -10,6 +10,7 @@ import Partners from "./Pages/Partners/Partners";
 import ContactPage from "./Pages/ContactPage/ContactPage";
 import ServicesPage from "./Pages/ServicesPage/ServicesPage";
 import ProjectPage from "./Pages/ProjectPage/ProjectPage";
+import ProjectDetail from "./Pages/ProjectDetail/ProjectDetail";
 AOS.init();
 function App() {
 
@@ -24,6 +25,8 @@ function App() {
             <Route path="/elaqe" element={<ContactPage />} />
             <Route path="/xidmetler" element={<ServicesPage />} />
             <Route path="/layiheler" element={<ProjectPage />} />
+            <Route path="/layiheler/:id" element={<ProjectDetail />} />
+
             {/* <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} /> */}
           </Route>

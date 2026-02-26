@@ -28,7 +28,9 @@
     background-size: contain;
     z-index: 100;
     width: 100%;
-    border: 1px solid red;
+    @media (max-width:768px){
+      background-image: none;
+    }
     .services-cards{
     display: grid;
  grid-template-columns: repeat(2, minmax(200px, 400px)); // kart eni
@@ -134,10 +136,11 @@
     }
   }
   @media screen and (max-width:768px){
-    .services-cards{
+
    display: grid;
- grid-template-columns: repeat(1, minmax(200px, 400px));
-    }
+ grid-template-columns: repeat(1, minmax(200px,100%));
+ gap: 20px;
+   
   }
 
  

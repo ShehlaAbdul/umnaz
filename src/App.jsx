@@ -9,6 +9,7 @@ import "aos/dist/aos.css";
 import Partners from "./Pages/Partners/Partners";
 import ContactPage from "./Pages/ContactPage/ContactPage";
 import ServicesPage from "./Pages/ServicesPage/ServicesPage";
+import ProjectPage from "./Pages/ProjectPage/ProjectPage";
 AOS.init();
 function App() {
 
@@ -21,7 +22,8 @@ function App() {
             <Route path="/haqqimizda" element={<AboutPage />} />
             <Route path="/terefdaslar" element={<Partners />} />
             <Route path="/elaqe" element={<ContactPage />} />
-            <Route path="/xidmetler" element={<ServicesPage/>}/>
+            <Route path="/xidmetler" element={<ServicesPage />} />
+            <Route path="/layiheler" element={<ProjectPage />} />
             {/* <Route path="/about" element={<About />} />
           <Route path="/contact" element={<Contact />} /> */}
           </Route>

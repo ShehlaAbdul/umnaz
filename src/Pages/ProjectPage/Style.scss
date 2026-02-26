@@ -1,0 +1,71 @@
+@use "../../styles/global.scss" as *;
+
+#projects-page {
+  padding: 80px 6%;
+  background: $main-bg-color;
+
+  .projects-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 40px;
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+   
+  }
+
+  .project-card {
+    position: relative;
+    height: 340px;
+    border-radius: 8px;
+    overflow: hidden;
+    background-size: cover;
+    background-position: center;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+     @media (max-width: 1048px) {
+      height: 280px;
+    }
+    &:hover{
+         .overlay{
+            background: transparent;
+       }
+    }
+
+    .overlay {
+      position: absolute;
+      inset: 0;
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-end;
+      padding: 20px;
+      background: linear-gradient(to top, #00000015 100%, #89898908);
+
+      h3 {
+        color: $main-text-color;
+        font-size: 20px;
+        font-weight: 500;
+      }
+
+      .arrow {
+        color: #020202;
+        font-size: 22px;
+        transition: transform 0.3s ease;
+        background-color: #fff;
+        padding: 12px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        transform: rotate(-40deg); 
+        
+      }
+      &:hover{
+      
+        .arrow{
+         transform: rotate(0deg);
+        }
+      }
+    }
+  }
+}

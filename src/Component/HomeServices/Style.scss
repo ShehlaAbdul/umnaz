@@ -25,15 +25,16 @@
     background-image: url("../../assets/images/services.webp");
     background-position: center;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: 50%;
     z-index: 100;
     width: 100%;
+    padding: 200px 0;
     @media (max-width:768px){
       background-image: none;
     }
     .services-cards{
     display: grid;
- grid-template-columns: repeat(2, minmax(200px, 400px)); // kart eni
+ grid-template-columns: repeat(2, minmax(200px, 450px)); // kart eni
   justify-content: space-between; // flex space-between kimi
   gap: 101px;
   .service-card {
@@ -121,18 +122,17 @@
     }
 
     .card-title {
-      font-size: 20px;
+      font-size: 21px;
       font-weight: 500;
       line-height: 140%;
       color: $main-text-color;
     }
 
     .card-text {
-      font-family: "Poppins";
       font-size: 16px;
       font-weight: 400;
       line-height: 140%;
-      color: #bdbdbd;
+      color: #FFFFFF;
     }
   }
   @media screen and (max-width:768px){

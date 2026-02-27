@@ -2,6 +2,7 @@ import React from "react";
 import "./Style.scss";
 import MainBtn from "../MainBtn/MainBtn";
 import { motion } from "framer-motion";
+import { Link } from "react-router-dom";
 function HomeServices() {
   const details = [
     {
@@ -61,7 +62,11 @@ function HomeServices() {
         </div>
 
         {/* BUTTON */}
-        <MainBtn title={"Daha Ətraflı "} />
+        <div className="mt-5">
+          <Link to={"xidmetler"} className="">
+            <MainBtn title={"Hamısına Bax "} />
+          </Link>
+        </div>
       </div>
     </section>
   );

@@ -1,13 +1,12 @@
-import React from 'react';
+import React from "react";
 import "./Style.scss";
 // import HomeHero from "../../assets/images/home-hero.webp";
-import MainBtn from '../MainBtn/MainBtn';
-import { Link } from 'react-router-dom';
+import MainBtn from "../MainBtn/MainBtn";
+import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 // import AOS from "aos";
-// import "aos/dist/aos.css"; 
+// import "aos/dist/aos.css";
 // AOS.init();
-
 
 function HomeHero() {
   return (
@@ -21,13 +20,13 @@ function HomeHero() {
         // data-aos-duration="1000"
         >
           <motion.h1
-         className="hero-text m-0"
+            //  className="hero-text m-0"
             initial={{ x: -100, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             transition={{
               duration: 0.9,
               ease: "easeOut",
-              delay:0.3
+              delay: 0.3,
             }}
             viewport={{ once: false }}
           >
@@ -35,10 +34,7 @@ function HomeHero() {
             dizaynda estetik baxış.
           </motion.h1>
         </div>
-        <div
-          className="bottom d-flex flex-column flex-md-row align-items-start align-items-md-end justify-content-between gap-3 "
-          
-        >
+        <div className="bottom d-flex flex-column flex-md-row align-items-start align-items-md-end justify-content-between gap-3 ">
           <motion.p
             className="hero-text m-0"
             initial={{ x: -100, opacity: 0 }}
@@ -46,7 +42,7 @@ function HomeHero() {
             transition={{
               duration: 0.9,
               ease: "easeOut",
-              delay:0.3
+              delay: 0.3,
             }}
             viewport={{ once: false }}
           >

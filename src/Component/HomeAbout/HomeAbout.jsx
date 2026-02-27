@@ -10,29 +10,23 @@ function HomeAbout() {
     <section id="home-about">
       <div className="home-about container-fluid g-0 ">
         <div className="row d-flex flex-column flex-lg-row   align-items-center g-0">
-          <div className="text-side d-flex  flex-column align-items-start col-12 col-lg-7 g-0 ">
-            <motion.span
-              className="head-title"
-              initial={{ x: -50, opacity: 0 }}
-              whileInView={{ x: 0, opacity: 1 }}
-              transition={{
-                duration: 0.5,
-                delay: 0.3,
-              }}
-              viewport={{ once: false }}
-            >
-              Haqqımızda
-            </motion.span>
-            <motion.h1
+          <motion.div
+            className="text-side d-flex  flex-column align-items-start col-12 col-lg-7 g-0 "
+            initial={{ scale: 0.8, opacity: 0 }}
+            whileInView={{ scale: 1, opacity: 1 }}
+            transition={{ duration: 1 }}
+          >
+            <span className="head-title">Haqqımızda</span>
+            <h1
               className="pt-3"
-              initial={{ scale: 0.7, opacity: 0 }}
+              initial={{ scale: 0.8, opacity: 0 }}
               whileInView={{ scale: 1, opacity: 1 }}
               transition={{ duration: 1 }}
             >
               Müasir Memarlığın Ünvanı
-            </motion.h1>
-            <motion.div
-              initial={{ scale: 0.7, opacity: 0 }}
+            </h1>
+            <div
+              initial={{ scale: 0.8, opacity: 0 }}
               whileInView={{ scale: 1, opacity: 1 }}
               transition={{ duration: 1 }}
             >
@@ -50,13 +44,13 @@ function HomeAbout() {
                 ehtiyacları əsasında və yüksək keyfiyyət standartlarına uyğun
                 şəkildə hazırlanır.
               </p>
-            </motion.div>
-            <div className="pt-2 pt-md-4">
+            </div>
+            <div className="pt-3 pt-md-4">
               <Link to={"/haqqimizda"}>
                 <MainBtn title={"Haqqımızda"} />
               </Link>
             </div>
-          </div>
+          </motion.div>
           <motion.div
             initial={{ scale: 0.6, opacity: 0 }}
             whileInView={{ scale: 1, opacity: 1 }}

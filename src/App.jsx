@@ -5,6 +5,7 @@ import "./styles/global.scss";
 import "./styles/style.scss";
 import AboutPage from "./Pages/AboutPage/AboutPage";
 import AOS from "aos";
+import { motion } from "framer-motion";
 import "aos/dist/aos.css"; 
 import Partners from "./Pages/Partners/Partners";
 import ContactPage from "./Pages/ContactPage/ContactPage";

@@ -34,14 +34,14 @@ function ProjectDetail() {
     
 
       <section id="project-detail">
-        <div className="project-detail container-fluid">
+        <div className="project-detail container">
           {/* Thumbnail */}
-          {/* <div className="thumbnail">
-            <img
+          <div className="thumbnail">
+            <img 
               src={`https://api.umnazmemarliq.az${project.thumbnail}`}
               alt={project.title?.az}
             />
-          </div> */}
+          </div>
          
 
           {/* Slider images */}

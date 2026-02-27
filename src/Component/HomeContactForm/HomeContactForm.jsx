@@ -1,11 +1,18 @@
 import React from 'react';
 import "./Style.scss";
 import MainBtn from '../MainBtn/MainBtn';
+import { motion } from "framer-motion";
+
 
 function HomeContactForm() {
   return (
     <section className="contact-section">
-      <div className="container">
+      <motion.div
+        className="container"
+        initial={{ scale: 0.7, opacity: 0 }}
+        whileInView={{ scale: 1, opacity: 1 }}
+        transition={{ duration: 1 }}
+      >
         {/* Title */}
         <div className="contact-header">
           <p>Əlaqə</p>
@@ -45,7 +52,7 @@ function HomeContactForm() {
             </div>
           </div>
         </form>
-      </div>
+      </motion.div>
     </section>
   );
 }

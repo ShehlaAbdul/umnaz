@@ -54,7 +54,7 @@ function HomeHero() {
             birləşdirərək, yaşayış və kommersiya məkanları üçün funksional,
             estetik və davamlı həllər yaradır.
           </motion.p>
-          <Link to={"/"}>
+          <Link to={"/layiheler"}>
             {" "}
             <MainBtn title={"Layihələrə bax"} />
           </Link>

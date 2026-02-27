@@ -3,6 +3,7 @@ import "./Style.scss";
 import HomeEstetic from "../../assets/images/HomeEstetics.webp";
 import Banner1 from "../../assets/images/banner1.webp";
 import Banner2 from "../../assets/images/banner2.webp";
+import { motion } from "framer-motion";
 
 function HomeEstetics() {
   return (
@@ -14,16 +15,46 @@ function HomeEstetics() {
 
         <div className="home-estetics col-12 col-md-8 d-flex flex-column justify-content-center">
           <div className="top d-flex gap-2 gap-md-3 align-items-lg-center justify-content-center">
-            <h2>Estetika ilə formalaşan</h2>
-            <div className="banner1">
+            <motion.h2
+              initial={{ x: -100, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              transition={{
+                duration: 1,
+                delay: 0.3,
+              }}
+              viewport={{ once: false }}
+            >
+              Estetika ilə formalaşan
+            </motion.h2>
+            <motion.div
+              initial={{ scale: 0.7, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 1 }}
+              className="banner1"
+            >
               <img src={Banner1} alt="" />
-            </div>
+            </motion.div>
           </div>
           <div className="bottom d-flex flex-column-reverse flex-lg-row gap-2 gap-md-3 align-items-lg-center justify-content-center">
-            <div className='banner2'>
+            <motion.div
+              initial={{ scale: 0.7, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 1 }}
+              className="banner2"
+            >
               <img src={Banner2} alt="" />
-            </div>
-            <h2>funksionallıqla tamamlanan məkanlar</h2>
+            </motion.div>
+            <motion.h2
+              initial={{ x: 100, opacity: 0 }}
+              whileInView={{ x: 0, opacity: 1 }}
+              transition={{
+                duration: 1,
+                delay: 0.3,
+              }}
+              viewport={{ once: false }}
+            >
+              funksionallıqla tamamlanan məkanlar
+            </motion.h2>
           </div>
         </div>
       </div>

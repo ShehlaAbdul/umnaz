@@ -1,10 +1,9 @@
-import React from 'react';
+import React from "react";
 import "./Style.scss";
-import MainBtn from '../MainBtn/MainBtn';
-import { Link } from 'react-router-dom';
-import HomeAboutImg from "../../assets/images/home-about-img.webp"
+import MainBtn from "../MainBtn/MainBtn";
+import { Link } from "react-router-dom";
+import HomeAboutImg from "../../assets/images/home-about-img.webp";
 import { motion } from "framer-motion";
-
 
 function HomeAbout() {
   return (
@@ -17,71 +16,46 @@ function HomeAbout() {
               initial={{ x: -50, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
               transition={{
-                duration: 0.9,
-                ease: "easeOut",
+                duration: 0.5,
+                delay: 0.3,
               }}
-              viewport={{ once: true }}
+              viewport={{ once: false }}
             >
               Haqqımızda
             </motion.span>
             <motion.h1
               className="pt-3"
-              initial={{ y: 50, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              transition={{
-                duration: 0.6,
-                ease: "easeOut",
-                delay: 0.3,
-              }}
-              viewport={{ once: false }}
+              initial={{ scale: 0.7, opacity: 0 }}
+              whileInView={{ scale: 1, opacity: 1 }}
+              transition={{ duration: 1 }}
             >
               Müasir Memarlığın Ünvanı
             </motion.h1>
-            <motion.p
-              initial={{ y: 50, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              transition={{
-                duration: 0.3,
-                ease: "easeOut",
-                delay: 0.5,
-              }}
-              viewport={{ once: false }}
-            >
-              UMNAZ Memarlıq və Dizayn Agentliyi 2023-cü ildən etibarən memarlıq
-              və dizayn sahəsində fəaliyyət göstərən, müasir yanaşmaları və
-              funksional həlləri ilə seçilən bir şirkətdir. Şirkət yaşayış,
-              kommersiya və ictimai məkanlar üçün memarlıq layihələndirmə,
-              dizayn və konsultasiya xidmətləri təqdim edir.
-            </motion.p>
-            <motion.p
-              initial={{ y: 50, opacity: 0 }}
-              whileInView={{ y: 0, opacity: 1 }}
-              transition={{
-                duration: 0.6,
-                ease: "easeOut",
-                delay: 0.6,
-              }}
-              viewport={{ once: false }}
-            >
-              UmNaz Memarlıq MMC hər bir layihəyə fərdi yanaşaraq, estetik
-              dəyərlərlə funksionallığı birləşdirən məkanlar yaradır.
-              Layihələrimiz müasir memarlıq trendlərinə uyğun, müştəri
-              ehtiyacları əsasında və yüksək keyfiyyət standartlarına uyğun
-              şəkildə hazırlanır.
-            </motion.p>
             <motion.div
-              className="pt-2 pt-md-4"
-              initial={{ scale: 0.6, opacity: 0 }}
+              initial={{ scale: 0.7, opacity: 0 }}
               whileInView={{ scale: 1, opacity: 1 }}
-              transition={{
-                duration: 0.6,
-                delay: 0.5,
-              }}
+              transition={{ duration: 1 }}
             >
-              <Link to={""}>
+              <p>
+                UMNAZ Memarlıq və Dizayn Agentliyi 2023-cü ildən etibarən
+                memarlıq və dizayn sahəsində fəaliyyət göstərən, müasir
+                yanaşmaları və funksional həlləri ilə seçilən bir şirkətdir.
+                Şirkət yaşayış, kommersiya və ictimai məkanlar üçün memarlıq
+                layihələndirmə, dizayn və konsultasiya xidmətləri təqdim edir.
+              </p>
+              <p>
+                UmNaz Memarlıq MMC hər bir layihəyə fərdi yanaşaraq, estetik
+                dəyərlərlə funksionallığı birləşdirən məkanlar yaradır.
+                Layihələrimiz müasir memarlıq trendlərinə uyğun, müştəri
+                ehtiyacları əsasında və yüksək keyfiyyət standartlarına uyğun
+                şəkildə hazırlanır.
+              </p>
+            </motion.div>
+            <div className="pt-2 pt-md-4">
+              <Link to={"/haqqimizda"}>
                 <MainBtn title={"Haqqımızda"} />
               </Link>
-            </motion.div>
+            </div>
           </div>
           <motion.div
             initial={{ scale: 0.6, opacity: 0 }}

@@ -1,7 +1,7 @@
 import React from "react";
 import "./Style.scss";
 import MainBtn from "../MainBtn/MainBtn";
-
+import { motion } from "framer-motion";
 function HomeServices() {
   const details = [
     {
@@ -43,13 +43,19 @@ function HomeServices() {
         <div className="content container-fluid">
           <div className="services-cards">
             {details.map((item) => (
-              <div className="service-card" key={item.id}>
+              <motion.div
+                className="service-card"
+                key={item.id}
+                initial={{ scale: 0.7, opacity: 0 }}
+                whileInView={{ scale: 1, opacity: 1 }}
+                transition={{ duration: 1 }}
+              >
                 <div className="service-card__inner">
                   <span className="card-id">/{item.id}</span>
                   <h3 className="card-title">{item.title}</h3>
                   <p className="card-text">{item.description}</p>
                 </div>
-              </div>
+              </motion.div>
             ))}
           </div>
         </div>

@@ -11,7 +11,7 @@ function MainBtn({title}) {
       transition={{ duration: 0.8 }}
       className="main-btn"
     >
-      <button type="button">
+      <button type="button" className="cta-btn">
         <div className="arrow">
           <img src={Arrow} alt="Arrow icon" />
         </div>

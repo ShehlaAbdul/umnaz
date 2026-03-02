@@ -62,7 +62,7 @@ function HomeServices() {
         </div>
 
         {/* BUTTON */}
-        <div className="mt-5">
+        <div >
           <Link to={"xidmetler"} className="">
             <MainBtn title={"Hamısına Bax "} />
           </Link>

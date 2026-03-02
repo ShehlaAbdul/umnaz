@@ -10,14 +10,14 @@ function HomeProject() {
   return (
     <section id="home-projects" className="home-projects container-fluid g-0 ">
       <motion.div
-        // initial={{ y: -50, opacity: 0 }}
-        // whileInView={{ y: 0, opacity: 1 }}
-        // transition={{
-        //   duration: 0.9,
-        //   ease: "easeOut",
-        //   delay: 0.3,
-        // }}
-        // viewport={{ once: false }}
+      // initial={{ y: -50, opacity: 0 }}
+      // whileInView={{ y: 0, opacity: 1 }}
+      // transition={{
+      //   duration: 0.9,
+      //   ease: "easeOut",
+      //   delay: 0.3,
+      // }}
+      // viewport={{ once: false }}
       >
         <span
           initial={{ y: 100, opacity: 0 }}
@@ -54,16 +54,24 @@ function HomeProject() {
           initial={{ scale: 0.9, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.6 }}
-          className="col p-0"
+          className="col p-0 project-img"
         >
+          <div className="project-overlay">
+            <p className="g-0 m-0">Project Name</p>
+            <span>Baku</span>
+          </div>
           <img src={Project1} alt="" className="project" />
         </motion.div>
         <motion.div
           initial={{ scale: 0.9, opacity: 0 }}
           whileInView={{ scale: 1, opacity: 1 }}
           transition={{ duration: 0.6 }}
-          className=" col p-0 "
+          className=" col p-0 project-img"
         >
+          <div className="project-overlay">
+            <p className="g-0 m-0">Project Name</p>
+            <span>Baku</span>
+          </div>
           <img src={Project2} alt="" className="project" />
         </motion.div>
         <Link to={"/layiheler"} className="d-block d-md-none  d-flex ">

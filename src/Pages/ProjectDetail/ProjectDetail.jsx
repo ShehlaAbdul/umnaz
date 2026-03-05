@@ -4,6 +4,12 @@ import HeroSection from "../../Component/HeroSection/HeroSection";
 import BgImage from "../../assets/images/HeroSection.webp";
 import { useNavigate, useParams } from "react-router-dom";
 import { apiRequest } from "../../../utils/api";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 
 function ProjectDetail() {
     const { id } = useParams();
@@ -31,18 +37,16 @@ function ProjectDetail() {
   return (
     <>
       <HeroSection title={"Project name"} bgImage={BgImage} />
-    
 
       <section id="project-detail">
-        <div className="project-detail container">
+        <div className="project-detail container-fluid g-0 ">
           {/* Thumbnail */}
           <div className="thumbnail">
-            <img 
+            <img
               src={`https://api.umnazmemarliq.az${project.thumbnail}`}
               alt={project.title?.az}
             />
           </div>
-         
 
           {/* Slider images */}
           <div className="images">
@@ -65,20 +69,26 @@ function ProjectDetail() {
           <div className="other-projects">
             <h3>Digər layihələr</h3>
             <div className="other-grid">
+                <div>
+                  <Swiper spaceBetween={50} slidesPerView={1}>
               {otherProjects.map((item) => (
-                <div
-                  key={item._id}
-                  className="other-card"
-                  onClick={() => navigate(`/layiheler/${item._id}`)}
-                  style={{
-                    backgroundImage: `url(https://api.umnazmemarliq.az${item.thumbnail})`,
-                  }}
-                >
-                  <div className="overlay">
-                    <h4>{item.title?.az}</h4>
-                  </div>
+                    <SwiperSlide key={item._id}>
+                      {" "}
+                      <div
+                        className="other-card"
+                        onClick={() => navigate(`/layiheler/${item._id}`)}
+                        style={{
+                          backgroundImage: `url(https://api.umnazmemarliq.az${item.thumbnail})`,
+                        }}
+                      >
+                        <div className="overlay">
+                          <h4>{item.title?.az}</h4>
+                        </div>
+                      </div>
+                    </SwiperSlide>
+                    ))}
+                  </Swiper>
                 </div>
-              ))}
             </div>
           </div>
         </div>

@@ -47,11 +47,6 @@ function Header() {
               </Link>
             </li>
 
-            <li className="nav-item">
-              <Link className="nav-link" to="/partnyorlar">
-                Partnyorlar
-              </Link>
-            </li>
 
             <li className="nav-item">
               <Link className="nav-link" to="/layiheler">

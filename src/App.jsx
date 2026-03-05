@@ -7,6 +7,11 @@ import AboutPage from "./Pages/AboutPage/AboutPage";
 import AOS from "aos";
 import { motion } from "framer-motion";
 import "aos/dist/aos.css"; 
+import Swiper from "swiper";
+// import Swiper styles
+import "swiper/css";import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
 import Partners from "./Pages/Partners/Partners";
 import ContactPage from "./Pages/ContactPage/ContactPage";
 import ServicesPage from "./Pages/ServicesPage/ServicesPage";

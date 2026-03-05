@@ -1,27 +1,58 @@
-.thumbnail img {
+@use "../../styles/global.scss" as *;
+
+#project-detail{
+  background-color: $main-bg-color;
+  padding: 90px 6%;
+  .project-detail{
+    .thumbnail{
+    
+      width: 100%;
+      position: relative;
+      border-radius: 14px;
+      overflow: hidden;
+     img {
   width: 100%;
-  height: 500px;
-  object-fit: cover;
+  height: 100%;
+    height: 430px;
+  object-fit:cover;
 }
 
-.images {
-  display: flex;
-  gap: 20px;
-  margin: 40px 0;
+    }
+    .images{
+      display: flex;
+      img{
+        height: 100px;
+        object-fit: cover;
+      }
+    }
 
-  img {
-    width: 100%;
-    height: 250px;
-    object-fit: cover;
   }
 }
 
-.projects-content {
-  margin: 40px 0;
-}
+// .thumbnail img {
+//   width: 100%;
+//   height: 500px;
+//   object-fit: cover;
+// }
 
-.other-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 20px;
-}
+// .images {
+//   display: flex;
+//   gap: 20px;
+//   margin: 40px 0;
+
+//   img {
+//     width: 100%;
+//     height: 250px;
+//     object-fit: cover;
+//   }
+// }
+
+// .projects-content {
+//   margin: 40px 0;
+// }
+
+// .other-grid {
+//   display: grid;
+//   grid-template-columns: repeat(2, 1fr);
+//   gap: 20px;
+// }

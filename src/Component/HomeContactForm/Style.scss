@@ -13,7 +13,10 @@ align-items: center;
       font-weight: 600;
       margin-bottom: 8px;
       color: $main-text-color;
-      font-size: 50px;
+      font-size: 50px;  
+      @media (max-width:768px) {
+        font-size: 28px !important;
+      }
     }
     p {
       color: $main-text-color;
@@ -85,7 +88,6 @@ align-items: center;
   @media (max-width: 768px) {
     .contact-section {
       padding: 60px 20px;
-
       .contact-form {
         button {
           width: 100%;

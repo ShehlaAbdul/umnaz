@@ -147,7 +147,7 @@
 
   @media (max-width: 992px) {
     padding: 60px 0;
-
+   
     .services-grid {
     
 
@@ -183,6 +183,10 @@
  }
 
 }
-
+@media (max-width:768px){
+   .head-side{
+        align-items: start !important;
+    }
+}
 
 }

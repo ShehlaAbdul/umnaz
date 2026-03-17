@@ -1,8 +1,8 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom"
-import MainLayout from "./Layout/MainLayout"
-import Home from "./Pages/Home/Home";
 import "./styles/global.scss";
 import "./styles/style.scss";
+import MainLayout from "./Layout/MainLayout"
+import Home from "./Pages/Home/Home";
 import AboutPage from "./Pages/AboutPage/AboutPage";
 import AOS from "aos";
 import { motion } from "framer-motion";
@@ -18,8 +18,10 @@ import ServicesPage from "./Pages/ServicesPage/ServicesPage";
 import ProjectPage from "./Pages/ProjectPage/ProjectPage";
 import ProjectDetail from "./Pages/ProjectDetail/ProjectDetail";
 import { useTranslation } from "react-i18next";
-import LanguageRedirect from "./Component/languageRedirect/languageRedirect";
-  import "./i18n/i18next.jsx";
+import LanguageRedirect from "./Component/languageRedirect/LanguageRedirect";
+import Loader from "./Component/Loader/Loader";
+import { useEffect, useState } from "react";
+  // import "./i18n/i18next.jsx";
 
 AOS.init();
 function App() {
@@ -27,6 +29,14 @@ function App() {
   // if (!i18n.isInitialized) {
   //   return null;
   // }
+  const [loader, setLoader] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => setLoader(false), 2000);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (loader) return <Loader />;
 
   return (
     <>

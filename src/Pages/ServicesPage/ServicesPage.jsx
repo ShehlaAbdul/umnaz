@@ -4,9 +4,20 @@ import HeroSection from '../../Component/HeroSection/HeroSection';
 import BgImage from "../../assets/images/HeroSection.webp";
 import { apiRequest } from '../../../utils/api';
 import parse from "html-react-parser";
+import { useTranslation } from 'react-i18next';
+import { useLocation } from 'react-router-dom';
+import { addLanguageToPath, getCurrentLanguage } from '../../utils/languageUtils';
 
 
 function ServicesPage() {
+    const { t } = useTranslation();
+    const { pathname } = useLocation();
+    // Get current language from URL BAXXXXXXXXXXXXXXXX BUNA
+    const currentLanguage = getCurrentLanguage(pathname);
+    const createLanguageAwarePath = (path) => {
+      return addLanguageToPath(path, currentLanguage);
+  };
+  
    const [services, setServices] = useState([]);
     useEffect(() => {
       apiRequest("/services").then((data) => {

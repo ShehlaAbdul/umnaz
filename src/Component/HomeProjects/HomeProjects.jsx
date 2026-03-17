@@ -15,13 +15,15 @@ import { apiRequest } from "../../../utils/api";
 
 
 function HomeProject() {
-      const { t, i18n } = useTranslation();
-      const { pathname } = useLocation();
-      // Get current language from URL BAXXXXXXXXXXXXXXXX BUNA
-      const currentLanguage = getCurrentLanguage(pathname);
-      const createLanguageAwarePath = (path) => {
-        return addLanguageToPath(path, currentLanguage);
-      };
+        const { t, i18n } = useTranslation();
+              const { pathname } = useLocation();
+              // Get current language from URL BAXXXXXXXXXXXXXXXX BUNA
+     const currentLanguage = getCurrentLanguage(pathname);
+     const lang = i18n.language.slice(0, 2);
+              const createLanguageAwarePath = (path) => {
+                return addLanguageToPath(path, currentLanguage);
+     };
+     
   const [projects, setProjects] = useState([]);
   
     useEffect(() => {
@@ -69,7 +71,7 @@ function HomeProject() {
         </motion.div>
         <div className="projects row">
           {latestProjects.map((project) => (
-            <div className="col-12 col-md-6" key={project._id}>
+            <div className="col-12 col-md-6" key={project.id}>
               <Link to={createLanguageAwarePath(`/layiheler/${project.id}`)}>
                 <motion.div
                   initial={{ y: 100, opacity: 0 }}
@@ -78,8 +80,8 @@ function HomeProject() {
                   className="project-img"
                 >
                   <div className="project-overlay">
-                    <p>{project.text?.[currentLanguage]}</p>
-                    <span>{project.text?.az}</span>
+                    <p>{project?.title?.[lang]}</p>
+                    {/* <span>{project.text?.[lang]}</span> */}
                   </div>
 
                   <img

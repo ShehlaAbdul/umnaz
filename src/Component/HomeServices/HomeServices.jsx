@@ -14,6 +14,7 @@ import {
 function HomeServices() {
   const [services, setServices] = useState([]);
   const { t, i18n } = useTranslation();
+    const lang = i18n.language.slice(0, 2);
        const { pathname } = useLocation();
        // Get current language from URL BAXXXXXXXXXXXXXXXX BUNA
        const currentLanguage = getCurrentLanguage(pathname);
@@ -28,32 +29,32 @@ function HomeServices() {
     });
   }, []);
 
-  const details = [
-    {
-      id: 1,
-      title: "Ümumi xidmət bloku",
-      description:
-        "Hər şey bir ünvanda. Eskiz layihələndirmə,Geoloji həllər və konstruksiya hesablamaları,İnteryer və eksteryer dizayn xidmətləri.",
-    },
-    {
-      id: 2,
-      title: "Restoranlar üçün",
-      description:
-        "Restoranlar üçün interyer və eksteryer dizayn xidməti. Fəaliyyətinizə uyğun, estetik və funksional məkan həlləri təqdim edirik.",
-    },
-    {
-      id: 3,
-      title: "Tikintiyə icazə üçün layihələr",
-      description:
-        "Tikintiyə icazənin alınması üçün Həyət və bağ evlərinin layihələrinin hazırlanması.",
-    },
-    {
-      id: 4,
-      title: "Mağazalar üçün",
-      description:
-        "Mağazalar üçün interyer və eksteryer dizayn xidməti. Brendinizə uyğun müasir və cəlbedici dizayn konseptləri.",
-    },
-  ];
+  // const details = [
+  //   {
+  //     id: 1,
+  //     title: "Ümumi xidmət bloku",
+  //     description:
+  //       "Hər şey bir ünvanda. Eskiz layihələndirmə,Geoloji həllər və konstruksiya hesablamaları,İnteryer və eksteryer dizayn xidmətləri.",
+  //   },
+  //   {
+  //     id: 2,
+  //     title: "Restoranlar üçün",
+  //     description:
+  //       "Restoranlar üçün interyer və eksteryer dizayn xidməti. Fəaliyyətinizə uyğun, estetik və funksional məkan həlləri təqdim edirik.",
+  //   },
+  //   {
+  //     id: 3,
+  //     title: "Tikintiyə icazə üçün layihələr",
+  //     description:
+  //       "Tikintiyə icazənin alınması üçün Həyət və bağ evlərinin layihələrinin hazırlanması.",
+  //   },
+  //   {
+  //     id: 4,
+  //     title: "Mağazalar üçün",
+  //     description:
+  //       "Mağazalar üçün interyer və eksteryer dizayn xidməti. Brendinizə uyğun müasir və cəlbedici dizayn konseptləri.",
+  //   },
+  // ];
 
   return (
     <section id="home-services">
@@ -79,8 +80,13 @@ function HomeServices() {
                 >
                   <div className="service-card__inner">
                     <span className="card-id">/{index + 1}</span>
-                    <h3 className="card-title">{parse(item.title?.az)}</h3>
-                    <p className="card-text">{parse(item.text?.az)}</p>
+                    <h3 className="card-title">
+                      {parse(item.title?.[lang] || "")}
+                    </h3>
+                    <p className="card-text">
+                      {" "}
+                      {parse(item.text?.[lang] || "")}
+                    </p>
                   </div>
                 </motion.div>
               </>

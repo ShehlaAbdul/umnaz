@@ -178,9 +178,9 @@ useEffect(() => {
 
         {/* FOOTER BOTTOM */}
         <div className="footer-bottom g-0 m-0">
-          <p>© Bütün hüquqlar qorunur.</p>
+          <p>{t("home.footer.rights")}</p>
           <Link to="https://birsayt.az" target="_blank" rel="noreferrer">
-            Sayt hazırlandı: Birsayt.az
+            {t("home.footer.developed")}
           </Link>
         </div>
       </div>

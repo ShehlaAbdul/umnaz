@@ -24,6 +24,8 @@
     "react-i18next": "^16.5.8",
     "react-icons": "^5.5.0",
     "react-router-dom": "^7.13.0",
+    "react-spinner": "^0.2.7",
+    "react-spinners": "^0.17.0",
     "sass": "^1.97.3",
     "swiper": "^12.1.2"
   },

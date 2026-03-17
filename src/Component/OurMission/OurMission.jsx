@@ -3,24 +3,22 @@ import "./Style.scss";
 import BgImage from "../../assets/images/OurMission.webp";
 // import {motion} from "../"
 import { motion } from "framer-motion";
+import { useTranslation } from 'react-i18next';
+import { useLocation } from 'react-router-dom';
+import { addLanguageToPath, getCurrentLanguage } from '../../utils/languageUtils';
 
 
 function OurMission() {
-    const values = [
-    {
-      title: "Peşəkarlıq və məsuliyyət",
-    },
-    {
-      title: "Fərdi yanaşma",
-    },
-    {
-      title: "Yaradıcılıq və innovasiya",
-    },
-    {
-      title: "Keyfiyyət və davamlılıq",
-    }
-  ];
-
+      const { t, i18n } = useTranslation();
+               const { pathname } = useLocation();
+               // Get current language from URL BAXXXXXXXXXXXXXXXX BUNA
+      const currentLanguage = getCurrentLanguage(pathname);
+      const lang = i18n.language.slice(0, 2);
+               const createLanguageAwarePath = (path) => {
+                 return addLanguageToPath(path, currentLanguage);
+  };
+  
+const values = t("about.valuesList", { returnObjects: true });
   return (
     <section id="values-section">
       <div
@@ -50,15 +48,14 @@ function OurMission() {
               whileInView={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.7, ease: "easeOut" }}
             >
-              Missiyamız
+              {t("about.missionTitle")}
             </motion.h1>
             <motion.p
               initial={{ x: -50, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
               transition={{ duration: 0.7, ease: "easeOut" }}
             >
-              Müasir, funksional və estetik baxımdan dəyər yaradan memarlıq
-              həlləri ilə müştərilərimizin gözləntilərini üstələmək.
+              {t("about.missionText")}
             </motion.p>
           </div>
         </div>

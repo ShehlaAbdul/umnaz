@@ -3,7 +3,7 @@ import detector from "i18next-browser-languagedetector";
 import backend from "i18next-http-backend";
 import { initReactI18next } from "react-i18next";
 
-const langs = ["az", "en", "ru"];
+const langs = ["az", "en"];
 
 i18n
   .use(detector)

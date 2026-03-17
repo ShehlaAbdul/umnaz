@@ -42,7 +42,7 @@ const languageDropdownRef = useRef(null);
       }
 
       // Navigate to the new path
-      navigate(newPath);
+    
     };
     useEffect(() => {
       const handleClickOutside = (event) => {

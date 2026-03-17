@@ -11,20 +11,32 @@ import Facebook from "../../assets/icons/facebook.svg";
 import LinkedIn from "../../assets/icons/linkedin.svg";
 import Whatsapp from "../../assets/icons/whatsap.svg";
 import HomeContactForm from "../../Component/HomeContactForm/HomeContactForm";
+import { useTranslation } from "react-i18next";
+import { useLocation } from "react-router-dom";
+import {
+  addLanguageToPath,
+  getCurrentLanguage,
+} from "../../utils/languageUtils";
+import { t } from "i18next";
 
 
 function ContactPage() {
+     const { t, i18n } = useTranslation();
+           const { pathname } = useLocation();
+           // Get current language from URL BAXXXXXXXXXXXXXXXX BUNA
+           const currentLanguage = getCurrentLanguage(pathname);
+           const createLanguageAwarePath = (path) => {
+             return addLanguageToPath(path, currentLanguage);
+  };
+  
   return (
     <>
-      <HeroSection title={"Əlaqə"} bgImage={bgImage} />
+      <HeroSection title={t("contact.title")} bgImage={bgImage} />
       <section id="contact-sec">
         <div className="contact-sec container-fluid g-0">
           <div className="contact-header d-flex  flex-column align-items-center">
-            <h2>Əlaqə vasitələri</h2>
-            <p>
-              Bizimlə əlaqə saxlamaq və xidmətlərimiz haqqında ətraflı məlumat
-              almaq üçün aşağıdakı vasitələrdən istifadə edə bilərsiniz:
-            </p>
+            <h2>{t("contact.headtitle")}</h2>
+            <p>{t("contact.headtext")}</p>
           </div>
           <div className="contact-content">
             {/* Left Side */}
@@ -33,7 +45,7 @@ function ContactPage() {
                 <div className="info-row">
                   <img src={Mail} alt="mail" />
                   <div>
-                    <h4>E-mail ünvanı</h4>
+                    <h4>{t("contact.mail")}</h4>
                     <span>info@umnazmemarliq.az</span>
                   </div>
                 </div>
@@ -43,12 +55,10 @@ function ContactPage() {
                 <div className="info-row">
                   <img src={Clock} alt="clock" />
                   <div>
-                    <h4>İş saatları</h4>
-                    <span>
-                      Bazar ertəsi – Şənbə: 09:00 – 18:00
-                    </span>
+                    <h4>{t("contact.workHour.title")}</h4>
+                    <span>{t("contact.workHour.weekly")}</span>
                     <br />
-                    <span>Bazar günü: istirahət günü</span>
+                    <span>{t("contact.workHour.weekend")}</span>
                   </div>
                 </div>
               </div>
@@ -57,7 +67,7 @@ function ContactPage() {
                 <div className="info-row">
                   <img src={Phone} alt="phone" />
                   <div>
-                    <h4>Telefon</h4>
+                    <h4>{t("contact.phone")}</h4>
                     <span>+994 10 2400050</span>
                   </div>
                 </div>
@@ -67,7 +77,7 @@ function ContactPage() {
                 <div className="info-row">
                   <img src={Location} alt="location" />
                   <div>
-                    <h4>Ünvan</h4>
+                    <h4>{t("contact.phone")}</h4>
                     <span>Sumqayıt şəhəri, Bulvar küçəsi 39B, M38</span>
                   </div>
                 </div>

@@ -28,9 +28,9 @@ function HomeEstetics() {
         </div>
 
         <div className="home-estetics col-12 col-md-8 d-flex flex-column justify-content-center">
-          <div className="top d-flex gap-2 gap-md-3 align-items-lg-center justify-content-between">
+          <div className="top d-flex gap-2 gap-md-3 align-items-lg-center justify-content-center">
             <motion.h2
-              initial={{ x: -100, opacity: 0 }}
+              initial={{ x: -50, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
               transition={{
                 duration: 1,
@@ -59,7 +59,7 @@ function HomeEstetics() {
               <img src={Banner2} alt="" />
             </motion.div>
             <motion.h2
-              initial={{ x: 100, opacity: 0 }}
+              initial={{ x: 50, opacity: 0 }}
               whileInView={{ x: 0, opacity: 1 }}
               transition={{
                 duration: 1,

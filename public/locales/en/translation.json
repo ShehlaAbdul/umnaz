@@ -70,12 +70,13 @@
         "contact": "Contact"
       },
       "rights": "© All rights reserved.",
-      "developed": "Website developed by"
+      "developed": "Website developed by: Birsayt.az"
     }
   },
   "about": {
     "whyTitle": "Why Us?",
-    "whyText": "We approach each project not only as a design task but as a value-creating process. By combining modern architectural approaches with functionality and aesthetic vision, we provide solutions tailored to our clients’ needs and expectations.\n\nOur professional and responsible team emphasizes individual attention at every stage, creating quality and sustainable spaces with creative and innovative ideas. For us, the goal is not just to deliver a project, but to gain long-term satisfaction and trust.",
+    "whyText": "We approach each project not only as a design task but as a value-creating process. By combining modern architectural approaches with functionality and aesthetic vision, we provide solutions tailored to our clients’ needs and expectations.",
+    "whyText2":"Our professional and responsible team emphasizes individual attention at every stage, creating quality and sustainable spaces with creative and innovative ideas. For us, the goal is not just to deliver a project, but to gain long-term satisfaction and trust.",
     "estetics": {
       "text": "Spaces shaped by aesthetics",
       "text2": "completed with functionality"
@@ -107,8 +108,11 @@
     "headtext": "You can use the following methods to get in touch with us and obtain detailed information about our services:",
     "mail": "E-mail address",
     "workHour": {
+      "title": "Work Hours",
       "weekly": "Monday – Saturday: 09:00 – 18:00",
       "weekend": "Sunday: closed"
-    }
+    },
+    "phone": "Phone",
+    "location":"Location"
   }
 }

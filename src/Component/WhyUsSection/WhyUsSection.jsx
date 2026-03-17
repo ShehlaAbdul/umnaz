@@ -1,8 +1,20 @@
 import React from 'react';
 import "./Style.scss";
 import { motion } from "framer-motion";
+import { addLanguageToPath, getCurrentLanguage } from '../../utils/languageUtils';
+import { useLocation } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 function WhyUsSection() {
+      const { t, i18n } = useTranslation();
+               const { pathname } = useLocation();
+               // Get current language from URL BAXXXXXXXXXXXXXXXX BUNA
+      const currentLanguage = getCurrentLanguage(pathname);
+      const lang = i18n.language.slice(0, 2);
+               const createLanguageAwarePath = (path) => {
+                 return addLanguageToPath(path, currentLanguage);
+  };
+  
   return (
     <section id="why-us">
       <div className="why-us container-fluid">
@@ -12,27 +24,21 @@ function WhyUsSection() {
             whileInView={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            Niyə biz?
+            {t("about.whyTitle")}
           </motion.h1>
           <motion.p
             initial={{ x: -50, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            Biz hər bir layihəyə yalnız dizayn işi kimi deyil, dəyər yaradan bir
-            proses kimi yanaşırıq. Müasir memarlıq yanaşmalarını funksionallıq
-            və estetik baxışla birləşdirərək, müştərilərimizin ehtiyac və
-            gözləntilərinə uyğun həllər təqdim edirik.{" "}
+            {t("about.whyText")}
           </motion.p>
           <motion.p
             initial={{ x: -50, opacity: 0 }}
             whileInView={{ x: 0, opacity: 1 }}
             transition={{ duration: 0.8, ease: "easeOut" }}
           >
-            Peşəkar və məsuliyyətli komandamız hər mərhələdə fərdi yanaşmanı
-            əsas götürür, yaradıcı və innovativ ideyalarla keyfiyyətli və
-            davamlı məkanlar formalaşdırır. Bizim üçün məqsəd yalnız layihə
-            təqdim etmək deyil, uzunmüddətli məmnuniyyət və etibar qazanmaqdır.
+            {t("about.whyText2")}
           </motion.p>
         </div>
       </div>

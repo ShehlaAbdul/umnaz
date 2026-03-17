@@ -12,7 +12,7 @@ function Home() {
   return (
     <>
       <HomeHero />
-      <HomePartners/>
+      {/* <HomePartners/> */}
       <HomeAbout/>
       <HomeProject/>
       <HomeServices/>

@@ -2,12 +2,24 @@ import React, { useEffect, useState } from "react";
 import "./Style.scss";
 import MainBtn from "../MainBtn/MainBtn";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import { apiRequest } from "../../../utils/api";
 import parse from "html-react-parser";
-// import
+import { t } from "i18next";
+import { useTranslation } from "react-i18next";
+import {
+  addLanguageToPath,
+  getCurrentLanguage,
+} from "../../utils/languageUtils";
 function HomeServices() {
   const [services, setServices] = useState([]);
+  const { t, i18n } = useTranslation();
+       const { pathname } = useLocation();
+       // Get current language from URL BAXXXXXXXXXXXXXXXX BUNA
+       const currentLanguage = getCurrentLanguage(pathname);
+       const createLanguageAwarePath = (path) => {
+         return addLanguageToPath(path, currentLanguage);
+       };
   useEffect(() => {
     apiRequest("/services").then((data) => {
       if (data && data.data) {
@@ -48,8 +60,8 @@ function HomeServices() {
       <div className="home-services container-fluid g-0 m-0 p-0">
         {/* HEAD */}
         <div className="head-side">
-          <p>Xidmətlərimiz</p>
-          <h1>Xidmətlər</h1>
+          <p> {t("home.services.title")}</p>
+          <h1>{t("home.services.subtitle")}</h1>
         </div>
 
         {/* CONTENT */}
@@ -78,8 +90,8 @@ function HomeServices() {
 
         {/* BUTTON */}
         <div>
-          <Link to={"xidmetler"} className="">
-            <MainBtn title={"Hamısına Bax "} />
+          <Link to={createLanguageAwarePath("/xidmetler")} className="">
+            <MainBtn title={`${t("home.services.btn")}`} />
           </Link>
         </div>
       </div>

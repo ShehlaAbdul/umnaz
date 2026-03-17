@@ -4,11 +4,26 @@
   import Project1 from "../../assets/images/home-project3.webp";
   import Project2 from "../../assets/images/home-project2.webp";
   import { motion } from "framer-motion";
-  import { Link, NavLink } from "react-router-dom";
-  import { apiRequest } from "../../../utils/api";
+  import { Link, NavLink, useLocation } from "react-router-dom";
+import { apiRequest } from "../../../utils/api";
+  import { t } from "i18next";
+  import { useTranslation } from "react-i18next";
+  import {
+    addLanguageToPath,
+    getCurrentLanguage,
+  } from "../../utils/languageUtils";
 
-  function HomeProject() {
-    const [projects, setProjects] = useState([]);
+
+function HomeProject() {
+      const { t, i18n } = useTranslation();
+      const { pathname } = useLocation();
+      // Get current language from URL BAXXXXXXXXXXXXXXXX BUNA
+      const currentLanguage = getCurrentLanguage(pathname);
+      const createLanguageAwarePath = (path) => {
+        return addLanguageToPath(path, currentLanguage);
+      };
+  const [projects, setProjects] = useState([]);
+  
     useEffect(() => {
       apiRequest("/projects") // backenddəki endpoint
         .then((res) => {
@@ -22,8 +37,6 @@
         });
     }, []);
       // const latestProjects = projects.slice(-2);
-
-
     // Son iki layihəni göstəririk
     const latestProjects = projects.slice(-2);
     return (
@@ -32,7 +45,7 @@
         className="home-projects container-fluid g-0 "
       >
         <motion.div>
-          <span className="head-title">Layihələrimiz</span>
+          <span className="head-title">{t("home.projects.title")}</span>
           <div className="d-flex justify-content-between pt-3">
             <h1
               initial={{ y: 40, opacity: 0 }}
@@ -43,18 +56,21 @@
               }}
               viewport={{ once: false }}
             >
-              Son Layihələrimiz
+              {t("home.projects.title")}
             </h1>
-            <Link to={"layiheler"} className="d-none d-md-block">
+            <Link
+              to={createLanguageAwarePath("/layiheler")}
+              className="d-none d-md-block"
+            >
               {" "}
-              <MainBtn title={"Hamısına bax "} />
+              <MainBtn title={`${t("home.projects.title")}`} />
             </Link>
           </div>
         </motion.div>
         <div className="projects row">
           {latestProjects.map((project) => (
             <div className="col-12 col-md-6" key={project._id}>
-              <Link to={`/layiheler/${project.id}`}>
+              <Link to={createLanguageAwarePath(`/layiheler/${project.id}`)}>
                 <motion.div
                   initial={{ y: 100, opacity: 0 }}
                   whileInView={{ y: 0, opacity: 1 }}
@@ -62,7 +78,7 @@
                   className="project-img"
                 >
                   <div className="project-overlay">
-                    <p>{project.title?.az}</p>
+                    <p>{project.text?.[currentLanguage]}</p>
                     <span>{project.text?.az}</span>
                   </div>
 

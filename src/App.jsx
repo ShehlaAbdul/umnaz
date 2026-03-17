@@ -17,26 +17,41 @@ import ContactPage from "./Pages/ContactPage/ContactPage";
 import ServicesPage from "./Pages/ServicesPage/ServicesPage";
 import ProjectPage from "./Pages/ProjectPage/ProjectPage";
 import ProjectDetail from "./Pages/ProjectDetail/ProjectDetail";
+import { useTranslation } from "react-i18next";
+import LanguageRedirect from "./Component/languageRedirect/languageRedirect";
+  import "./i18n/i18next.jsx";
+
 AOS.init();
 function App() {
+  // const { i18n } = useTranslation();
+  // if (!i18n.isInitialized) {
+  //   return null;
+  // }
 
   return (
     <>
       <BrowserRouter>
-        <Routes>
-          <Route element={<MainLayout />}>
-            <Route path="/" element={<Home />} />
-            <Route path="/haqqimizda" element={<AboutPage />} />
-            <Route path="/terefdaslar" element={<Partners />} />
-            <Route path="/elaqe" element={<ContactPage />} />
-            <Route path="/xidmetler" element={<ServicesPage />} />
-            <Route path="/layiheler" element={<ProjectPage />} />
-            <Route path="/layiheler/:id" element={<ProjectDetail />} />
-
-            {/* <Route path="/about" element={<About />} />
-          <Route path="/contact" element={<Contact />} /> */}
-          </Route>
-        </Routes>
+        <LanguageRedirect>
+          <Routes>
+            <Route element={<MainLayout />}>
+              <Route path="/" element={<Home />} />
+              <Route path="/haqqimizda" element={<AboutPage />} />
+              <Route path="/terefdaslar" element={<Partners />} />
+              <Route path="/elaqe" element={<ContactPage />} />
+              <Route path="/xidmetler" element={<ServicesPage />} />
+              <Route path="/layiheler" element={<ProjectPage />} />
+              <Route path="/layiheler/:id" element={<ProjectDetail />} />
+              {/* EN */}
+              <Route path="/en" element={<Home />} />
+              <Route path="/en/haqqimizda" element={<AboutPage />} />
+              <Route path="/en/terefdaslar" element={<Partners />} />
+              <Route path="/en/elaqe" element={<ContactPage />} />
+              <Route path="/en/xidmetler" element={<ServicesPage />} />
+              <Route path="/en/layiheler" element={<ProjectPage />} />
+              <Route path="/en/layiheler/:id" element={<ProjectDetail />} />
+            </Route>
+          </Routes>
+        </LanguageRedirect>
       </BrowserRouter>
     </>
   );

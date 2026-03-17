@@ -1,12 +1,78 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "./Style.scss";
 import Logo from "../../assets/images/logo_white.webp"
-import { Link } from "react-router-dom";
+import { Link, useLocation , useNavigate} from "react-router-dom";
 import "./Style.scss";
 import { FaBars } from "react-icons/fa6";
-
+import {
+  addLanguageToPath,
+  getCurrentLanguage,
+  removeLanguageFromPath,
+} from "../../utils/languageUtils";
+import { useTranslation } from "react-i18next";
+import { useRef } from "react";
 function Header() {
-   const [lang, setLang] = useState("AZ");
+const languageDropdownRef = useRef(null);
+
+  // const [lang, setLang] = useState("AZ");
+  const navigate = useNavigate();
+   const { t, i18n } = useTranslation();
+   const [isLanguageOpen, setIsLanguageOpen] = useState(false);
+   const [selectedLanguage, setSelectedLanguage] = useState("Az");
+ const { pathname } = useLocation();
+    const currentLanguage = getCurrentLanguage(pathname);
+    const createLanguageAwarePath = (path) => {
+      return addLanguageToPath(path, currentLanguage);
+    };
+    const toggleLanguageDropdown = () => {
+      setIsLanguageOpen(!isLanguageOpen);
+    };
+    const handleLanguageSelect = (selectedLanguage) => {
+      setIsLanguageOpen(false);
+
+      // Get current path without language prefix
+      const pathWithoutLang = removeLanguageFromPath(pathname);
+
+      // Create new path with selected language
+      const newPath = addLanguageToPath(pathWithoutLang, selectedLanguage);
+
+      // Change i18n language
+      if (i18n && i18n.changeLanguage) {
+        i18n.changeLanguage(selectedLanguage);
+      }
+
+      // Navigate to the new path
+      navigate(newPath);
+    };
+    useEffect(() => {
+      const handleClickOutside = (event) => {
+        if (
+          languageDropdownRef.current &&
+          !languageDropdownRef.current.contains(event.target)
+        ) {
+          setIsLanguageOpen(false);
+        }
+      };
+
+      document.addEventListener("mousedown", handleClickOutside);
+      return () => {
+        document.removeEventListener("mousedown", handleClickOutside);
+      };
+    }, []);
+
+    useEffect(() => {
+      // Update selected language display based on current URL language
+      setSelectedLanguage(
+        currentLanguage === "az"
+          ? "Az"
+          : currentLanguage === "en"
+            ? "En"
+            : currentLanguage === "ru"
+              ? "Ru"
+              : "Az",
+      );
+    }, [currentLanguage]);
+  
   return (
     <nav className="navbar navbar-expand-lg p-0 px-0 ">
       <div className="container-fluid  ">
@@ -31,53 +97,57 @@ function Header() {
           <ul className="navbar-nav mx-auto mb-2 mb-lg-0 ">
             <li className="nav-item">
               <Link className="nav-link" to="/">
-                Ana səhifə
+                {t("header.home")}
               </Link>
             </li>
 
             <li className="nav-item">
-              <Link className="nav-link" to="/haqqimizda">
-                Haqqımızda
+              <Link
+                className="nav-link"
+                to={createLanguageAwarePath("/haqqimizda")}
+              >
+                {t("header.about")}
               </Link>
             </li>
 
             <li className="nav-item">
               <Link className="nav-link" to="/xidmetler">
-                Xidmətlər
+                {t("header.services")}
               </Link>
             </li>
 
-
             <li className="nav-item">
               <Link className="nav-link" to="/layiheler">
-                Layihələr
+                {t("header.projects")}
               </Link>
             </li>
 
             <li className="nav-item">
               <Link className="nav-link" to="/terefdaslar">
-                Tərəfdaşlar
+                {t("header.partners")}
               </Link>
             </li>
 
             <li className="nav-item">
               <Link className="nav-link" to="/elaqe">
-                Əlaqə
+                {t("header.contact")}
               </Link>
             </li>
           </ul>
 
           {/* Language Switch */}
           <div className="d-flex gap-2">
-            {["AZ", "EN"].map((item) => (
-              <button
-                key={item}
-                className={`lan btn-sm ${lang === item ? "active" : ""}`}
-                onClick={() => setLang(item)}
-              >
-                {item}
-              </button>
-            ))}
+            <div className="d-flex gap-2">
+              {["az", "en"].map((item) => (
+                <button
+                  key={item}
+                  className={`lan btn-sm ${currentLanguage === item ? "active" : ""}`}
+                  onClick={() => handleLanguageSelect(item)}
+                >
+                  {item.toUpperCase()}
+                </button>
+              ))}
+            </div>
           </div>
         </div>
       </div>

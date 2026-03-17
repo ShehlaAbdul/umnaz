@@ -21,7 +21,8 @@
    },
    "projects": {
      "title": "Layihələrimiz",
-     "subtitle": "Son Layihələrimiz"
+     "subtitle": "Son Layihələrimiz",
+     "btn":"Hamısına bax"
    },
    "services": {
      "title": "Xidmətlərimiz",
@@ -36,13 +37,9 @@
      "title": "Əlaqə",
      "subtitle": "Bizimlə əlaqə saxlayın",
      "form": {
-       "firstName": {
-         "label": "Ad",
-         "placeholder": "Adınızı daxil edin"
-       },
-       "lastName": {
-         "label": "Soyad",
-         "placeholder": "Soyadınızı daxil edin"
+       "fullName": {
+         "label": "Ad, Soyad",
+         "placeholder": "Adınızı və Soyadınızı daxil edin"
        },
        "email": {
          "label": "E-mail",
@@ -60,8 +57,19 @@
      }
    },
    "footer": {
+     "logotext": "UMNAZ Memarlıq və Dizayn Agentliyi — memarlıqda funksionallıq,",
+     "text2": "dizaynda estetik baxış.",
      "rights": "© Bütün hüquqlar qorunur.",
-     "developed": "Sayt hazırlandı"
+     "developed": "Sayt hazırlandı",
+     "quickLinksTitle": "Sürətli keçid",
+     "quickLinks": {
+       "home": "Ana səhifə",
+       "about": "Haqqımızda",
+       "services": "Xidmətlər",
+       "projects": "Layihələr",
+       "partners": "Partnyorlar",
+       "contact": "Əlaqə"
+     }
    }
  },
  "about":{

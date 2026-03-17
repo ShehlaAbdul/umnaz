@@ -14,15 +14,14 @@
   }
   }
   .home-estetics{
-    text-align: center;
+    text-align: end;
     gap: 20px;
      .banner2{
         object-fit: cover;
         object-position: center;
-        // border: 1px solid red;
     }
     h2{
-        font-size: 36px;
+        font-size: 34px;
     }
 
   }
@@ -34,13 +33,11 @@
          text-align: start;
         h2{
             font-size:26px;
-            // border: 1px solid red;
         }
         .banner1, .banner2{
-            // width: 100%;
             height: 60px;
             object-fit: cover;
-            // object-position: center;
+            object-position: center;
             // border: 1px solid red;
             
             img{

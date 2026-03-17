@@ -1,7 +1,7 @@
 {
   "header": {
     "home": "Home",
-    "about": "About",
+    "about": "About Us",
     "services": "Services",
     "projects": "Projects",
     "partners": "Partners",
@@ -14,14 +14,15 @@
       "btn": "View Projects"
     },
     "about": {
-      "title": "About",
+      "title": "About Us",
       "subtitle": "Address of Modern Architecture",
       "text": "UMNAZ Architecture and Design Agency has been operating since 2023 in the field of architecture and design, distinguished by modern approaches and functional solutions. The company provides architectural design, interior design, and consultancy services for residential, commercial, and public spaces.",
       "text2": "UmNaz Architecture LLC approaches each project individually, creating spaces that combine aesthetics with functionality. Our projects are prepared according to modern architectural trends, client needs, and high-quality standards."
     },
     "projects": {
       "title": "Our Projects",
-      "subtitle": "Latest Projects"
+      "subtitle": "Latest Projects",
+      "btn": "View All"
     },
     "services": {
       "title": "Our Services",
@@ -36,14 +37,11 @@
       "title": "Contact",
       "subtitle": "Get in touch with us",
       "form": {
-        "firstName": {
-          "label": "First Name",
-          "placeholder": "Enter your first name"
+        "fullName": {
+          "label": "Fullname",
+          "placeholder": "Enter your fullname"
         },
-        "lastName": {
-          "label": "Last Name",
-          "placeholder": "Enter your last name"
-        },
+
         "email": {
           "label": "E-mail",
           "placeholder": "Enter your e-mail"
@@ -60,6 +58,17 @@
       }
     },
     "footer": {
+      "logotext": "UMNAZ Architecture and Design Agency — functionality in architecture,",
+      "text2": "aesthetic vision in design.",
+      "quickLinksTitle": "Quick Links",
+      "quickLinks": {
+        "home": "Home",
+        "about": "About Us",
+        "services": "Services",
+        "projects": "Projects",
+        "partners": "Partners",
+        "contact": "Contact"
+      },
       "rights": "© All rights reserved.",
       "developed": "Website developed by"
     }

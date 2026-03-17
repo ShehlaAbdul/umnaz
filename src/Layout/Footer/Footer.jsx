@@ -1,24 +1,44 @@
 import React, { useEffect, useState } from "react";
 import "./Style.scss";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import Logo from "../../assets/images/logo_gold.webp";
 import Instagram from "../../assets/icons/instagram.svg";
 import Facebook from "../../assets/icons/facebook.svg";
 import LinkedIn from "../../assets/icons/linkedin.svg";
 import Whatsapp from "../../assets/icons/whatsap.svg";
+import Mail from "../../assets/icons/mail.svg";
+import Clock from "../../assets/icons/clock.svg";
+import Phone from "../../assets/icons/phone.svg";
+import Location from "../../assets/icons/location.svg";
 import { apiRequest } from "../../../utils/api";
+import { useTranslation } from "react-i18next";
+import { addLanguageToPath, getCurrentLanguage } from "../../utils/languageUtils";
 
 function Footer() {
   const [settings, setSettings] = useState([]);
+  
+     const { t, i18n } = useTranslation();
+           const { pathname } = useLocation();
+           // Get current language from URL BAXXXXXXXXXXXXXXXX BUNA
+  const currentLanguage = getCurrentLanguage(pathname);
+  const lang = i18n.language.slice(0, 2);
+           const createLanguageAwarePath = (path) => {
+             return addLanguageToPath(path, currentLanguage);
+  };
+  
+    
 
-  useEffect(() => {
-    apiRequest("/settings").then((data) => {
-      if (data && data.data) {
-        setSettings(data.data[0]);
-      }
-    });
-  }, []);
-  if (!settings) return null;
+useEffect(() => {
+  apiRequest("/settings").then((res) => {
+    console.log('RES', res);
+    
+    if(res) {
+      setSettings(res);
+      // console.log("LOG", res.data);
+      
+    }
+  });
+}, []);
 
   return (
     <footer>
@@ -35,19 +55,23 @@ function Footer() {
 
               {/* Text */}
               <p className="footer-desc">
-                UMNAZ Memarlıq və Dizayn Agentliyi — memarlıqda funksionallıq,{" "}
+                {t("home.footer.logotext")}
                 <br />
-                dizaynda estetik baxış.
+                {t("home.footer.text2")}
               </p>
               <div className="footer-icons">
                 <div className="icon">
                   <img src={Instagram} alt="instagram" />
                 </div>
-                {settings.instagram?.az && (
-                  <Link to={`${settings.instagram?.az}`}>
+                {/* {settings?.instagram?.[i18n.language] && (
+                  <a
+                    href={settings.instagram[i18n.language]}
+                    target="_blank"
+                    rel="noreferrer"
+                  >
                     <img src={Instagram} alt="instagram" />
-                  </Link>
-                )}
+                  </a>
+                )} */}
                 <div className="icon">
                   <img src={LinkedIn} alt="linkedin" />
                 </div>
@@ -60,11 +84,11 @@ function Footer() {
               </div>
 
               {/* Icons */}
-              <div className="footer-icons">
+              {/* <div className="footer-icons">
                 <i className="fa-brands fa-instagram"></i>
                 <i className="fa-brands fa-facebook-f"></i>
                 <i className="fa-brands fa-linkedin-in"></i>
-              </div>
+              </div> */}
             </div>
 
             {/* SAĞ HISSƏ */}
@@ -72,41 +96,79 @@ function Footer() {
               <div className="row">
                 {/* Sürətli keçid */}
                 <div className="col-12 col-md-6 footer-links pb-3">
-                  <h5>Sürətli keçid</h5>
+                  <h5>{t("home.footer.quickLinksTitle")}</h5>
                   <ul>
                     <li>
-                      <Link to="/">Ana səhifə</Link>
+                      <Link to="/">
+                        <span>{t("home.footer.quickLinks.home")}</span>
+                      </Link>
                     </li>
 
                     <li>
-                      <Link to="/haqqimizda">Haqqımızda</Link>
+                      <Link to="/haqqimizda">
+                        <span> {t("home.footer.quickLinks.about")}</span>
+                      </Link>
                     </li>
 
                     <li>
-                      <Link to="/xidmetler">Xidmətlər</Link>
+                      <Link to="/xidmetler">
+                        <span> {t("home.footer.quickLinks.services")}</span>
+                      </Link>
                     </li>
 
                     <li>
-                      <Link to="/layiheler">Layihələr</Link>
+                      <Link to="/layiheler">
+                        {" "}
+                        <span> {t("home.footer.quickLinks.projects")}</span>
+                      </Link>
                     </li>
 
                     <li>
-                      <Link to="/terefdaslar">Partnyorlar</Link>
+                      <Link to="/terefdaslar">
+                        {" "}
+                        <span>{t("home.footer.quickLinks.partners")}</span>
+                      </Link>
                     </li>
 
                     <li>
-                      <Link to="/elaqe">Əlaqə</Link>
+                      <Link to="/elaqe">
+                        {" "}
+                        <span> {t("home.footer.quickLinks.contact")}</span>
+                      </Link>
                     </li>
                   </ul>
                 </div>
 
                 {/* Əlaqə */}
                 <div className="col-12 col-md-6 footer-contact">
-                  <h5>Əlaqə vasitələri</h5>
-                  <ul>
-                    <li>Sumqayıt şəhəri, Bulvar küçəsi 39B, M38</li>
-                    <li>info@umnazmemarliq.az</li>
-                    <li>+994 10 2400050</li>
+                  <h5> {t("contact.headtitle")}</h5>
+                  <ul className="contact-methods">
+                    {/* {console.log('settings', settings)  }; */}
+                    <li>
+                      <div>
+                        {" "}
+                        <img src={Location} alt="location" />
+                      </div>
+                      <span> {settings?.address?.[lang]}</span>
+                    </li>
+                    <li>
+                      <div>
+                        {" "}
+                        <img src={Mail} alt="location" />
+                      </div>
+                      <span> {settings?.email?.[lang]}</span>
+                    </li>
+                    <li>
+                      <div>
+                        {" "}
+                        <img src={Phone} alt="location" />
+                      </div>
+                      <Link
+                        to={"https://api.whatsapp.com/send?phone=994102400050"}
+                      >
+                        <span> {settings?.phone_number?.[lang]}</span>
+                      </Link>
+                    </li>
                   </ul>
                 </div>
               </div>
@@ -115,7 +177,7 @@ function Footer() {
         </div>
 
         {/* FOOTER BOTTOM */}
-        <div className="footer-bottom g-0 m-0 p-0">
+        <div className="footer-bottom g-0 m-0">
           <p>© Bütün hüquqlar qorunur.</p>
           <Link to="https://birsayt.az" target="_blank" rel="noreferrer">
             Sayt hazırlandı: Birsayt.az

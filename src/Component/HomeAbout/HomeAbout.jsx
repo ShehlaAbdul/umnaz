@@ -1,11 +1,22 @@
 import React from "react";
 import "./Style.scss";
 import MainBtn from "../MainBtn/MainBtn";
-import { Link } from "react-router-dom";
+import { Link, useLocation } from "react-router-dom";
 import HomeAboutImg from "../../assets/images/home-about-img.webp";
 import { motion } from "framer-motion";
+import { t } from "i18next";
+import { useTranslation } from "react-i18next";
+import { addLanguageToPath, getCurrentLanguage } from "../../utils/languageUtils";
 
 function HomeAbout() {
+   const { t, i18n } = useTranslation();
+   const { pathname } = useLocation();
+   // Get current language from URL BAXXXXXXXXXXXXXXXX BUNA
+   const currentLanguage = getCurrentLanguage(pathname);
+   const createLanguageAwarePath = (path) => {
+     return addLanguageToPath(path, currentLanguage);
+   };
+
   return (
     <section id="home-about">
       <div className="home-about container-fluid g-0 ">
@@ -16,38 +27,26 @@ function HomeAbout() {
             whileInView={{ y: 0, opacity: 1 }}
             transition={{ duration: 0.7, ease: "easeOut" }}
           >
-            <span className="head-title">Haqqımızda</span>
+            <span className="head-title"> {t("home.about.title")}</span>
             <h1
               className="pt-3"
               initial={{ scale: 0.8, opacity: 0 }}
               whileInView={{ scale: 1, opacity: 1 }}
               transition={{ duration: 1 }}
             >
-              Müasir Memarlığın Ünvanı
+              {t("home.about.subtitle")}
             </h1>
             <div
               initial={{ scale: 0.8, opacity: 0 }}
               whileInView={{ scale: 1, opacity: 1 }}
               transition={{ duration: 1 }}
             >
-              <p>
-                UMNAZ Memarlıq və Dizayn Agentliyi 2023-cü ildən etibarən
-                memarlıq və dizayn sahəsində fəaliyyət göstərən, müasir
-                yanaşmaları və funksional həlləri ilə seçilən bir şirkətdir.
-                Şirkət yaşayış, kommersiya və ictimai məkanlar üçün memarlıq
-                layihələndirmə, dizayn və konsultasiya xidmətləri təqdim edir.
-              </p>
-              <p>
-                UmNaz Memarlıq MMC hər bir layihəyə fərdi yanaşaraq, estetik
-                dəyərlərlə funksionallığı birləşdirən məkanlar yaradır.
-                Layihələrimiz müasir memarlıq trendlərinə uyğun, müştəri
-                ehtiyacları əsasında və yüksək keyfiyyət standartlarına uyğun
-                şəkildə hazırlanır.
-              </p>
+              <p>{t("home.about.text")}</p>
+              <p>{t("home.about.text2")}</p>
             </div>
             <div className="pt-3 pt-md-4">
-              <Link to={"/haqqimizda"}>
-                <MainBtn title={"Haqqımızda"} />
+              <Link to={createLanguageAwarePath("/haqqimizda")}>
+                <MainBtn title={`${t("home.about.title")}`} />
               </Link>
             </div>
           </motion.div>

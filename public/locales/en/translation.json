@@ -95,7 +95,9 @@
     "title": "Services"
   },
   "projects": {
-    "title": "Projects"
+    "title": "Projects",
+     "other-projects":"Other Projects",
+     "btn":"View All"
   },
   "partners": {
     "title": "Partners",

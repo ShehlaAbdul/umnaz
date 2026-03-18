@@ -14,6 +14,7 @@ import Loader from "./Component/Loader/Loader";
 import { useEffect, useState } from "react";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import ScrollToTop from "./utils/ScrollToTop";
 
 AOS.init();
 
@@ -30,6 +31,7 @@ function App() {
   return (
     <BrowserRouter>
       <LanguageRedirect>
+        <ScrollToTop/>
         <Routes>
           <Route element={<MainLayout />}>
             <Route path="/" element={<Home />} />
@@ -50,6 +52,8 @@ function App() {
             <Route path="/en/layiheler/:id" element={<ProjectDetail />} />
           </Route>
         </Routes>
+
+     
       </LanguageRedirect>
     </BrowserRouter>
   );

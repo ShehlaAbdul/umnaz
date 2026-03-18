@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./Style.scss";
 import HeroSection from "../../Component/HeroSection/HeroSection";
 import BgImage from "../../assets/images/HeroSection.webp";
-import { Link, useNavigate, useParams } from "react-router-dom";
+import { Link, useLocation, useNavigate, useParams } from "react-router-dom";
 import { apiRequest } from "../../../utils/api";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
@@ -12,8 +12,17 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Navigation, Pagination } from "swiper/modules";
 import MainBtn from "../../Component/MainBtn/MainBtn";
-
+import { addLanguageToPath, getCurrentLanguage } from "../../utils/languageUtils";
+import { useTranslation } from "react-i18next";
+import { motion } from "framer-motion";
+  
 function ProjectDetail() {
+    const { t, i18n } = useTranslation();
+    const { pathname } = useLocation();
+      const currentLanguage = getCurrentLanguage(pathname);
+          const createLanguageAwarePath = (path) => {
+            return addLanguageToPath(path, currentLanguage);
+          };
     const { id } = useParams();
       const navigate = useNavigate();
   const [project, setProject] = useState(null);
@@ -42,7 +51,14 @@ function ProjectDetail() {
 
   return (
     <>
-      <HeroSection title={"Project name"} bgImage={BgImage} />
+      <HeroSection
+        title={
+          project?.[`title_${currentLanguage}`] ||
+          project?.title_az ||
+          "Loading..."
+        }
+        bgImage={BgImage}
+      />
 
       <section id="project-detail">
         <div className="project-detail container-fluid g-0 ">
@@ -92,38 +108,55 @@ function ProjectDetail() {
 
           {/* Content */}
           <div className="projects-content">
-            <h3>{project.title_az}</h3>
+            <h3>
+              {project?.[`title_${currentLanguage}`] || project?.title_az}
+            </h3>
 
             <div
               className="project-text"
-              dangerouslySetInnerHTML={{ __html: project.text_az }}
+              dangerouslySetInnerHTML={{
+                __html:
+                  project?.[`text_${currentLanguage}`] || project?.text_az,
+              }}
             />
           </div>
 
           {/* Other Projects */}
           <div className="other-projects">
             <div className="head d-flex justify-content-between pb-4">
-              <h2 className="m-0">Digər Layihələr</h2>
-              <Link to={"/layiheler"}>
+              <h2 className="m-0">{t("projects.other-projects")}</h2>
+              <Link to={createLanguageAwarePath("/layiheler")}>
                 {" "}
-                <MainBtn title={"Hamısına Bax"} />
+                <MainBtn title={`${t("projects.btn")}`} />
               </Link>
             </div>
 
             <div className="projects">
               <div className="projects">
                 {otherProjects.map((item) => (
-                  <div
-                    className="project-image"
-                    key={item._id}
-                    onClick={() => navigate(`/layiheler/${item._id}`)}
-                    style={{ cursor: "pointer" }}
+                  <motion.div
+                    initial={{ y: 100, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    transition={{ duration: 0.7, ease: "easeOut" }}
+                    className="project-img"
                   >
-                    <img
-                      src={`https://api.umnazmemarliq.az${item.thumbnail}`}
-                      alt={item.title_az}
-                    />
-                  </div>
+                    <Link
+                      to={createLanguageAwarePath(`/layiheler/${item.id}`)}
+                    >
+                      <div className="project-overlay">
+                        <p>
+                          {" "}
+                          {project?.[`title_${currentLanguage}`] ||
+                            project?.title_az}
+                        </p>
+                        {/* <span>{project.text?.[lang]}</span> */}
+                      </div>
+                      <img
+                        src={`https://api.umnazmemarliq.az${item.thumbnail}`}
+                        alt={item.title_az}
+                      />
+                    </Link>
+                  </motion.div>
                 ))}
               </div>
             </div>

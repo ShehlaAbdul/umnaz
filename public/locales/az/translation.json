@@ -94,7 +94,9 @@
   "title":"Xidmətlər"
  },
  "projects":{
-  "title":"Layihələr"
+  "title":"Layihələr",
+  "other-projects":"Digər Layihələr",
+  "btn":"Hamısına bax"
  },
  "partners":{
   "title":"Tərəfdaşlar",

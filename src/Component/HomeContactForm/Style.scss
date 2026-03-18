@@ -50,6 +50,7 @@ align-items: center;
       font-size: 14px;
       transition: all 0.3s ease;
       background-color: $main-card-bg;
+      color: $main-text-color;
 
       &::placeholder {
         color: #898989;

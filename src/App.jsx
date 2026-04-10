@@ -16,6 +16,8 @@ import AOS from "aos";
 import "aos/dist/aos.css";
 import ScrollToTop from "./utils/ScrollToTop";
 import NewsPage from "./Pages/NewsPage/NewsPage";
+import NewsDetail from "./Pages/NewsDetail/NewsDetail";
+import { HelmetProvider } from "react-helmet-async";
 
 AOS.init();
 
@@ -31,6 +33,7 @@ function App() {
 
   return (
     <BrowserRouter>
+      <HelmetProvider>
       <LanguageRedirect>
         <ScrollToTop />
         <Routes>
@@ -39,6 +42,8 @@ function App() {
             <Route path="/haqqimizda" element={<AboutPage />} />
             <Route path="/terefdaslar" element={<Partners />} />
             <Route path="/xeberler" element={<NewsPage />} />
+            <Route path="/xeberler/:id" element={<NewsDetail />} />
+            <Route path="/layiheler/:id" element={<ProjectDetail />} />
             <Route path="/elaqe" element={<ContactPage />} />
             <Route path="/xidmetler" element={<ServicesPage />} />
             <Route path="/layiheler" element={<ProjectPage />} />
@@ -48,7 +53,8 @@ function App() {
             <Route path="/en" element={<Home />} />
             <Route path="/en/haqqimizda" element={<AboutPage />} />
             <Route path="/en/terefdaslar" element={<Partners />} />
-              <Route path="/en/xeberler" element={<NewsPage />} />
+            <Route path="/en/xeberler" element={<NewsPage />} />
+            <Route path="/en/xeberler/:id" element={<NewsDetail />} />
             <Route path="/en/elaqe" element={<ContactPage />} />
             <Route path="/en/xidmetler" element={<ServicesPage />} />
             <Route path="/en/layiheler" element={<ProjectPage />} />
@@ -56,6 +62,7 @@ function App() {
           </Route>
         </Routes>
       </LanguageRedirect>
+      </HelmetProvider>
     </BrowserRouter>
   );
 }

@@ -9,6 +9,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { apiRequest } from "../../../utils/api";
 import { useTranslation } from "react-i18next";
 import { getCurrentLanguage } from "../../utils/languageUtils";
+import { Helmet } from "react-helmet-async";
 
 function ProjectPage() {
   // const projects = [
@@ -50,6 +51,10 @@ function ProjectPage() {
 
   return (
     <>
+      <Helmet>
+        <title>Umnaz Memarlıq MMC / Layihələr</title>
+        <meta name="description" content="Layihələr" />
+      </Helmet>
       {console.log(projects)}
       <HeroSection title={t("header.projects")} bgImage={BgImage} />
       <section id="projects-page">

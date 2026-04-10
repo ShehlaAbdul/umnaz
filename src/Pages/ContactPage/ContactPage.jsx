@@ -19,6 +19,7 @@ import {
 } from "../../utils/languageUtils";
 import { t } from "i18next";
 import { apiRequest } from "../../../utils/api";
+import { Helmet } from "react-helmet-async";
 
 function ContactPage() {
   const { t, i18n } = useTranslation();
@@ -41,6 +42,11 @@ function ContactPage() {
 
   return (
     <>
+      <Helmet>
+              <title>Umnaz Memarlıq MMC / Home Page</title>
+              <meta name="description" content="Bu ana səhifədir" />
+      </Helmet>
+      
       <HeroSection title={t("contact.title")} bgImage={bgImage} />
       <section id="contact-sec">
         <div className="contact-sec container-fluid g-0">

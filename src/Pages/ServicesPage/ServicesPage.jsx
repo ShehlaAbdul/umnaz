@@ -7,6 +7,7 @@ import parse from "html-react-parser";
 import { useTranslation } from 'react-i18next';
 import { useLocation } from 'react-router-dom';
 import { addLanguageToPath, getCurrentLanguage } from '../../utils/languageUtils';
+import { Helmet } from 'react-helmet-async';
 
 
 function ServicesPage() {
@@ -18,8 +19,9 @@ function ServicesPage() {
     const createLanguageAwarePath = (path) => {
       return addLanguageToPath(path, currentLanguage);
   };
+  const [services, setServices] = useState([]);
   
-   const [services, setServices] = useState([]);
+  
     useEffect(() => {
       apiRequest("/services").then((data) => {
         if (data && data.data) {
@@ -80,6 +82,10 @@ function ServicesPage() {
       ];
   return (
     <>
+      <Helmet>
+              <title>Umnaz Memarlıq MMC / Xidmətlər</title>
+              <meta name="description" content="Xidmətlər" />
+            </Helmet>
       <HeroSection title={t("header.services")} bgImage={BgImage} />
       <section id="services-page">
         <div className="services-page container-fluid">

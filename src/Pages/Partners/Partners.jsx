@@ -16,6 +16,11 @@ function Partners() {
     };
   return (
     <>
+      <Helmet>
+              <title>Umnaz Memarlıq MMC / Partnyorlarımız</title>
+              <meta name="description" content="Partnyorlarımız" />
+      </Helmet>
+      
       <HeroSection title={t("header.partners")} bgImage={bgImage} />
       <section id="partners-page">
         <div className="partners-page container-fluid g-0 d-flex justify-content-center ">

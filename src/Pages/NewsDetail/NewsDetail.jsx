@@ -18,8 +18,9 @@ import {
 } from "../../utils/languageUtils";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
+import parse from "html-react-parser";
 
-function ProjectDetail() {
+function NewsDetail() {
   const { t, i18n } = useTranslation();
   const { pathname } = useLocation();
   const currentLanguage = getCurrentLanguage(pathname);
@@ -43,8 +44,7 @@ function ProjectDetail() {
       if (data && data.data) {
         const filtered = data.data
           .filter((item) => item._id !== id) // cari layihəni çıxar
-          .sort(() => 0.5 - Math.random()) // random qarışdır
-          .slice(0, 2); // 2 layihə götür
+   
         setOtherNews(filtered);
       }
     });
@@ -56,15 +56,13 @@ function ProjectDetail() {
     <>
       <HeroSection
         title={
-          news?.[`title_${currentLanguage}`] ||
-          news?.title_az ||
-          "Loading..."
+          news?.[`title_${currentLanguage}`] || news?.title_az || "Loading..."
         }
         bgImage={BgImage}
       />
 
-      <section id="project-detail">
-        <div className="project-detail container-fluid g-0 ">
+      <section id="news-detail">
+        <div className="news-detail container-fluid g-0 ">
           {/* Thumbnail */}
           <div className="thumbnail">
             <div
@@ -76,96 +74,61 @@ function ProjectDetail() {
 
             <img
               src={`https://api.umnazmemarliq.az${news.thumbnail}`}
-              alt={project.title?.az}
+              alt={news.title?.az}
             />
-          </div>
-
-          {/* Slider images */}
-          <div className="images">
-            <Swiper
-              modules={[Navigation, Pagination]}
-              spaceBetween={20}
-              slidesPerView={3}
-              navigation
-              pagination={{ clickable: true }}
-            >
-              {project.images?.map((img, index) => (
-                <SwiperSlide key={index}>
-                  <img
-                    src={`https://api.umnazmemarliq.az${img}`}
-                    alt=""
-                    onClick={() =>
-                      setActiveImage(`https://api.umnazmemarliq.az${img}`)
-                    }
-                    style={{ cursor: "pointer" }}
-                  />
-                </SwiperSlide>
-              ))}
-            </Swiper>
-            {activeImage && (
-              <div className="image-modal" onClick={() => setActiveImage(null)}>
-                <img src={activeImage} alt="preview" />
-              </div>
-            )}
           </div>
 
           {/* Content */}
-          <div className="projects-content">
-            <h3>
-              {project?.[`title_${currentLanguage}`] || project?.title_az}
-            </h3>
+          <div className="news-content">
+            <h3>{news?.[`title_${currentLanguage}`] || news?.title_az}</h3>
 
             <div
-              className="project-text"
+              className="news-text"
               dangerouslySetInnerHTML={{
-                __html:
-                  project?.[`text_${currentLanguage}`] || project?.text_az,
+                __html: news?.[`text_${currentLanguage}`] || project?.text_az,
               }}
             />
           </div>
-
-          {/* Other Projects */}
-          <div className="other-projects">
-            <div className="head d-flex justify-content-between pb-4">
-              <h2 className="m-0">{t("projects.other-projects")}</h2>
-              <Link to={createLanguageAwarePath("/layiheler")}>
-                {" "}
-                <MainBtn title={`${t("projects.btn")}`} />
-              </Link>
-            </div>
-
-            <div className="projects">
-              <div className="projects">
-                {otherProjects.map((item) => (
-                  <motion.div
-                    initial={{ y: 100, opacity: 0 }}
-                    whileInView={{ y: 0, opacity: 1 }}
-                    transition={{ duration: 0.7, ease: "easeOut" }}
-                    className="project-img"
+          {/* Other News */}
+        </div>
+      </section>
+          <section id="other-news-page">
+            <div className="news-page container-fluid">
+              <div className="news-grid row">
+                {otherNews.map((item) => (
+                  <div
+                    key={item.id}
+                    className="news-card col-12 col-sm-6 col-md-4 col-lg-3 "
+                    onClick={() => navigate(`/xeberler/${item.id}`)}
                   >
-                    <Link to={createLanguageAwarePath(`/layiheler/${item.id}`)}>
-                      <div className="project-overlay">
-                        <p>
-                          {" "}
-                          {project?.[`title_${currentLanguage}`] ||
-                            project?.title_az}
-                        </p>
-                        {/* <span>{project.text?.[lang]}</span> */}
+                    <div className="card-container">
+                      <div className="card-bg">
+                        <img src={`https://api.umnazmemarliq.az${item.thumbnail}`} alt="" />
                       </div>
-                      <img
-                        src={`https://api.umnazmemarliq.az${item.thumbnail}`}
-                        alt={item.title_az}
-                      />
-                    </Link>
-                  </motion.div>
+                      <div className="text-side">
+                        <h5>
+                          {" "}
+                          {item?.title?.[currentLanguage] || item?.title?.az}
+                        </h5>
+                        <span className="date">
+                          {new Date(item.createdAt).toLocaleDateString("az-AZ")}
+                        </span>
+                        <p className="desc">
+                          {parse(
+                            item?.text?.[currentLanguage] ||
+                              item?.text?.az ||
+                              "",
+                          )}
+                        </p>
+                      </div>
+                    </div>
+                  </div>
                 ))}
               </div>
             </div>
-          </div>
-        </div>
-      </section>
+          </section>
     </>
   );
 }
 
-export default ProjectDetail;
+export default NewsDetail;

@@ -15,6 +15,7 @@ import MainBtn from "../../Component/MainBtn/MainBtn";
 import { addLanguageToPath, getCurrentLanguage } from "../../utils/languageUtils";
 import { useTranslation } from "react-i18next";
 import { motion } from "framer-motion";
+import { Helmet } from "react-helmet-async";
   
 function ProjectDetail() {
     const { t, i18n } = useTranslation();
@@ -51,6 +52,11 @@ function ProjectDetail() {
 
   return (
     <>
+      {/* <Helmet>
+              <title>Umnaz Memarlıq MMC / {project?.title_az}</title>
+              <meta name="description" content={project?.text_az} />
+      </Helmet> */}
+      
       <HeroSection
         title={
           project?.[`title_${currentLanguage}`] ||
